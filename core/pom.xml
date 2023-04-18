@@ -11,10 +11,24 @@
 
     <groupId>dev.remine.guilder.core</groupId>
     <artifactId>core</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>dev.remine.guilder</groupId>
+            <artifactId>commons</artifactId>
+            <version>FINAL</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.remine.guilder</groupId>
+            <artifactId>proto</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
