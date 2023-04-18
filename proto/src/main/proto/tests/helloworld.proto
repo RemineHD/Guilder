@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+// This is a development service. Only use for testing purposes
+option java_package = "dev.remine.guilder.rpc.tests";
+
+// The greeting service definition.
+service HelloWorld {
+  // SSends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+  // TODO: Stream of greetings
+}
+
+// The name string corresponds with the user name,
+// it will came back formatted in the HelloReply
+message HelloRequest
+{
+  string name = 1;
+}
+
+// Replies Hello, (name)
+// or it should
+message HelloReply
+{
+  string message = 1;
+}
