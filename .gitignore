@@ -59,3 +59,12 @@ api/loadbalancer/target/maven-status/maven-compiler-plugin/compile/default-compi
 api/loadbalancer/target/maven-archiver/pom.properties
 api/loadbalancer/target/loadbalancer-1.0-SNAPSHOT.jar
 api/loadbalancer/target/classes/dev/remine/guilder/api/loadbalancer/Main.class
+proxy/target/classes/plugin.yml
+proxy/target/classes/dev/remine/guilder/proxy/ProxyPlugin.class
+proxy/src/main/resources/plugin.yml
+proxy/src/main/java/dev/remine/guilder/proxy/ProxyPlugin.java
+plugins/hub/target/hub-1.0-SNAPSHOT-shaded.jar
+games/target/games-1.0.0.jar
+core/target/core-1.0.0.jar
+games/target/games-1.0.0.jar
+core/target/core-1.0.0.jar

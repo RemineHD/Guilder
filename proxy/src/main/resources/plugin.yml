@@ -1,0 +1,4 @@
+name: GuilderPorxyPlugin
+main: dev.remine.guilder.proxy.ProxyPlugin
+version: 1.0
+author: elremineh
