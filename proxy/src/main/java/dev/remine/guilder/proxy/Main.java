@@ -1,4 +1,4 @@
-package dev.remine.guilder.plugins;
+package dev.remine.guilder.proxy;
 
 public class Main {
     public static void main(String[] args) {
