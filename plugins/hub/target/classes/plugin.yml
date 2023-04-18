@@ -1,0 +1,3 @@
+name: guilderHub
+version: '1.0-SNAPSHOT'
+main: dev.remine.guilder.plugins.hub.GuilderHub
