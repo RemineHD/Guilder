@@ -14,6 +14,7 @@
         <module name="players" />
         <module name="plugins" />
         <module name="proto" />
+        <module name="games" />
         <module name="commons" />
       </profile>
     </annotationProcessing>
