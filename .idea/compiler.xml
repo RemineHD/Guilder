@@ -11,8 +11,8 @@
         <module name="loadbalancer" />
         <module name="servers" />
         <module name="worlds" />
+        <module name="hub" />
         <module name="players" />
-        <module name="plugins" />
         <module name="proto" />
         <module name="games" />
         <module name="commons" />
