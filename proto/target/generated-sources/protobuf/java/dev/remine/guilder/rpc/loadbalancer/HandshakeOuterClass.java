@@ -14,689 +14,6 @@ public final class HandshakeOuterClass {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface ClientServiceOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Loadbalancer.ClientService)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.Types.Services ServiceType = 1;</code>
-     */
-    int getServiceTypeValue();
-    /**
-     * <code>.Types.Services ServiceType = 1;</code>
-     */
-    dev.remine.guilder.rpc.types.ServicesOuterClass.Services getServiceType();
-
-    /**
-     * <code>string Ip = 2;</code>
-     */
-    java.lang.String getIp();
-    /**
-     * <code>string Ip = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getIpBytes();
-
-    /**
-     * <code>int32 Port = 3;</code>
-     */
-    int getPort();
-  }
-  /**
-   * <pre>
-   *This message provides the information the client may need to connect to a needed service.
-   *For example: it will provide a service Type PLAYERS with the IP 127.0.0.1 and the Port 50014,
-   *so when a Spigot server tries to retrieve information of a player it will be able to make a connection to that
-   *service.
-   * </pre>
-   *
-   * Protobuf type {@code Loadbalancer.ClientService}
-   */
-  public  static final class ClientService extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Loadbalancer.ClientService)
-      ClientServiceOrBuilder {
-    // Use ClientService.newBuilder() to construct.
-    private ClientService(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private ClientService() {
-      serviceType_ = 0;
-      ip_ = "";
-      port_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private ClientService(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              int rawValue = input.readEnum();
-
-              serviceType_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              ip_ = s;
-              break;
-            }
-            case 24: {
-
-              port_ = input.readInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.internal_static_Loadbalancer_ClientService_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.internal_static_Loadbalancer_ClientService_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.class, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder.class);
-    }
-
-    public static final int SERVICETYPE_FIELD_NUMBER = 1;
-    private int serviceType_;
-    /**
-     * <code>.Types.Services ServiceType = 1;</code>
-     */
-    public int getServiceTypeValue() {
-      return serviceType_;
-    }
-    /**
-     * <code>.Types.Services ServiceType = 1;</code>
-     */
-    public dev.remine.guilder.rpc.types.ServicesOuterClass.Services getServiceType() {
-      dev.remine.guilder.rpc.types.ServicesOuterClass.Services result = dev.remine.guilder.rpc.types.ServicesOuterClass.Services.valueOf(serviceType_);
-      return result == null ? dev.remine.guilder.rpc.types.ServicesOuterClass.Services.UNRECOGNIZED : result;
-    }
-
-    public static final int IP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object ip_;
-    /**
-     * <code>string Ip = 2;</code>
-     */
-    public java.lang.String getIp() {
-      java.lang.Object ref = ip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        ip_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Ip = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getIpBytes() {
-      java.lang.Object ref = ip_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        ip_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PORT_FIELD_NUMBER = 3;
-    private int port_;
-    /**
-     * <code>int32 Port = 3;</code>
-     */
-    public int getPort() {
-      return port_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (serviceType_ != dev.remine.guilder.rpc.types.ServicesOuterClass.Services.LOAD_BALANCER.getNumber()) {
-        output.writeEnum(1, serviceType_);
-      }
-      if (!getIpBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, ip_);
-      }
-      if (port_ != 0) {
-        output.writeInt32(3, port_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (serviceType_ != dev.remine.guilder.rpc.types.ServicesOuterClass.Services.LOAD_BALANCER.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, serviceType_);
-      }
-      if (!getIpBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, ip_);
-      }
-      if (port_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, port_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService)) {
-        return super.equals(obj);
-      }
-      dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService other = (dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService) obj;
-
-      boolean result = true;
-      result = result && serviceType_ == other.serviceType_;
-      result = result && getIp()
-          .equals(other.getIp());
-      result = result && (getPort()
-          == other.getPort());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SERVICETYPE_FIELD_NUMBER;
-      hash = (53 * hash) + serviceType_;
-      hash = (37 * hash) + IP_FIELD_NUMBER;
-      hash = (53 * hash) + getIp().hashCode();
-      hash = (37 * hash) + PORT_FIELD_NUMBER;
-      hash = (53 * hash) + getPort();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *This message provides the information the client may need to connect to a needed service.
-     *For example: it will provide a service Type PLAYERS with the IP 127.0.0.1 and the Port 50014,
-     *so when a Spigot server tries to retrieve information of a player it will be able to make a connection to that
-     *service.
-     * </pre>
-     *
-     * Protobuf type {@code Loadbalancer.ClientService}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Loadbalancer.ClientService)
-        dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.internal_static_Loadbalancer_ClientService_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.internal_static_Loadbalancer_ClientService_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.class, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder.class);
-      }
-
-      // Construct using dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        serviceType_ = 0;
-
-        ip_ = "";
-
-        port_ = 0;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.internal_static_Loadbalancer_ClientService_descriptor;
-      }
-
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService getDefaultInstanceForType() {
-        return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.getDefaultInstance();
-      }
-
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService build() {
-        dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService buildPartial() {
-        dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService result = new dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService(this);
-        result.serviceType_ = serviceType_;
-        result.ip_ = ip_;
-        result.port_ = port_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService) {
-          return mergeFrom((dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService other) {
-        if (other == dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.getDefaultInstance()) return this;
-        if (other.serviceType_ != 0) {
-          setServiceTypeValue(other.getServiceTypeValue());
-        }
-        if (!other.getIp().isEmpty()) {
-          ip_ = other.ip_;
-          onChanged();
-        }
-        if (other.getPort() != 0) {
-          setPort(other.getPort());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int serviceType_ = 0;
-      /**
-       * <code>.Types.Services ServiceType = 1;</code>
-       */
-      public int getServiceTypeValue() {
-        return serviceType_;
-      }
-      /**
-       * <code>.Types.Services ServiceType = 1;</code>
-       */
-      public Builder setServiceTypeValue(int value) {
-        serviceType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.Types.Services ServiceType = 1;</code>
-       */
-      public dev.remine.guilder.rpc.types.ServicesOuterClass.Services getServiceType() {
-        dev.remine.guilder.rpc.types.ServicesOuterClass.Services result = dev.remine.guilder.rpc.types.ServicesOuterClass.Services.valueOf(serviceType_);
-        return result == null ? dev.remine.guilder.rpc.types.ServicesOuterClass.Services.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.Types.Services ServiceType = 1;</code>
-       */
-      public Builder setServiceType(dev.remine.guilder.rpc.types.ServicesOuterClass.Services value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        serviceType_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.Types.Services ServiceType = 1;</code>
-       */
-      public Builder clearServiceType() {
-        
-        serviceType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object ip_ = "";
-      /**
-       * <code>string Ip = 2;</code>
-       */
-      public java.lang.String getIp() {
-        java.lang.Object ref = ip_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          ip_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string Ip = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIpBytes() {
-        java.lang.Object ref = ip_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          ip_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Ip = 2;</code>
-       */
-      public Builder setIp(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        ip_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Ip = 2;</code>
-       */
-      public Builder clearIp() {
-        
-        ip_ = getDefaultInstance().getIp();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Ip = 2;</code>
-       */
-      public Builder setIpBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        ip_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int port_ ;
-      /**
-       * <code>int32 Port = 3;</code>
-       */
-      public int getPort() {
-        return port_;
-      }
-      /**
-       * <code>int32 Port = 3;</code>
-       */
-      public Builder setPort(int value) {
-        
-        port_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 Port = 3;</code>
-       */
-      public Builder clearPort() {
-        
-        port_ = 0;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Loadbalancer.ClientService)
-    }
-
-    // @@protoc_insertion_point(class_scope:Loadbalancer.ClientService)
-    private static final dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService();
-    }
-
-    public static dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<ClientService>
-        PARSER = new com.google.protobuf.AbstractParser<ClientService>() {
-      public ClientService parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ClientService(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<ClientService> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ClientService> getParserForType() {
-      return PARSER;
-    }
-
-    public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface HandshakeRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Loadbalancer.HandshakeRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -720,6 +37,13 @@ public final class HandshakeOuterClass {
         getIdBytes();
   }
   /**
+   * <pre>
+   *This message provides the information the client may need to connect to a needed service.
+   *For example: it will provide a service Type PLAYERS with the IP 127.0.0.1 and the Port 50014,
+   *so when a Spigot server tries to retrieve information of a player it will be able to make a connection to that
+   *service.
+   * </pre>
+   *
    * Protobuf type {@code Loadbalancer.HandshakeRequest}
    */
   public  static final class HandshakeRequest extends
@@ -979,6 +303,13 @@ public final class HandshakeOuterClass {
       return builder;
     }
     /**
+     * <pre>
+     *This message provides the information the client may need to connect to a needed service.
+     *For example: it will provide a service Type PLAYERS with the IP 127.0.0.1 and the Port 50014,
+     *so when a Spigot server tries to retrieve information of a player it will be able to make a connection to that
+     *service.
+     * </pre>
+     *
      * Protobuf type {@code Loadbalancer.HandshakeRequest}
      */
     public static final class Builder extends
@@ -1256,24 +587,24 @@ public final class HandshakeOuterClass {
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> 
+    java.util.List<dev.remine.guilder.rpc.types.Services.Service> 
         getServicesList();
     /**
      * <pre>
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService getServices(int index);
+    dev.remine.guilder.rpc.types.Services.Service getServices(int index);
     /**
      * <pre>
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
     int getServicesCount();
     /**
@@ -1281,18 +612,18 @@ public final class HandshakeOuterClass {
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    java.util.List<? extends dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder> 
+    java.util.List<? extends dev.remine.guilder.rpc.types.Services.ServiceOrBuilder> 
         getServicesOrBuilderList();
     /**
      * <pre>
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder getServicesOrBuilder(
+    dev.remine.guilder.rpc.types.Services.ServiceOrBuilder getServicesOrBuilder(
         int index);
   }
   /**
@@ -1337,11 +668,11 @@ public final class HandshakeOuterClass {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                services_ = new java.util.ArrayList<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService>();
+                services_ = new java.util.ArrayList<dev.remine.guilder.rpc.types.Services.Service>();
                 mutable_bitField0_ |= 0x00000001;
               }
               services_.add(
-                  input.readMessage(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.parser(), extensionRegistry));
+                  input.readMessage(dev.remine.guilder.rpc.types.Services.Service.parser(), extensionRegistry));
               break;
             }
           }
@@ -1371,15 +702,15 @@ public final class HandshakeOuterClass {
     }
 
     public static final int SERVICES_FIELD_NUMBER = 3;
-    private java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> services_;
+    private java.util.List<dev.remine.guilder.rpc.types.Services.Service> services_;
     /**
      * <pre>
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    public java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> getServicesList() {
+    public java.util.List<dev.remine.guilder.rpc.types.Services.Service> getServicesList() {
       return services_;
     }
     /**
@@ -1387,9 +718,9 @@ public final class HandshakeOuterClass {
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    public java.util.List<? extends dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder> 
+    public java.util.List<? extends dev.remine.guilder.rpc.types.Services.ServiceOrBuilder> 
         getServicesOrBuilderList() {
       return services_;
     }
@@ -1398,7 +729,7 @@ public final class HandshakeOuterClass {
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
     public int getServicesCount() {
       return services_.size();
@@ -1408,9 +739,9 @@ public final class HandshakeOuterClass {
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService getServices(int index) {
+    public dev.remine.guilder.rpc.types.Services.Service getServices(int index) {
       return services_.get(index);
     }
     /**
@@ -1418,9 +749,9 @@ public final class HandshakeOuterClass {
      *A list of the services needed by the client for setup.
      * </pre>
      *
-     * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+     * <code>repeated .Types.Service services = 3;</code>
      */
-    public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder getServicesOrBuilder(
+    public dev.remine.guilder.rpc.types.Services.ServiceOrBuilder getServicesOrBuilder(
         int index) {
       return services_.get(index);
     }
@@ -1745,26 +1076,26 @@ public final class HandshakeOuterClass {
       }
       private int bitField0_;
 
-      private java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> services_ =
+      private java.util.List<dev.remine.guilder.rpc.types.Services.Service> services_ =
         java.util.Collections.emptyList();
       private void ensureServicesIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          services_ = new java.util.ArrayList<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService>(services_);
+          services_ = new java.util.ArrayList<dev.remine.guilder.rpc.types.Services.Service>(services_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder> servicesBuilder_;
+          dev.remine.guilder.rpc.types.Services.Service, dev.remine.guilder.rpc.types.Services.Service.Builder, dev.remine.guilder.rpc.types.Services.ServiceOrBuilder> servicesBuilder_;
 
       /**
        * <pre>
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> getServicesList() {
+      public java.util.List<dev.remine.guilder.rpc.types.Services.Service> getServicesList() {
         if (servicesBuilder_ == null) {
           return java.util.Collections.unmodifiableList(services_);
         } else {
@@ -1776,7 +1107,7 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public int getServicesCount() {
         if (servicesBuilder_ == null) {
@@ -1790,9 +1121,9 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService getServices(int index) {
+      public dev.remine.guilder.rpc.types.Services.Service getServices(int index) {
         if (servicesBuilder_ == null) {
           return services_.get(index);
         } else {
@@ -1804,10 +1135,10 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder setServices(
-          int index, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService value) {
+          int index, dev.remine.guilder.rpc.types.Services.Service value) {
         if (servicesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1825,10 +1156,10 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder setServices(
-          int index, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder builderForValue) {
+          int index, dev.remine.guilder.rpc.types.Services.Service.Builder builderForValue) {
         if (servicesBuilder_ == null) {
           ensureServicesIsMutable();
           services_.set(index, builderForValue.build());
@@ -1843,9 +1174,9 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public Builder addServices(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService value) {
+      public Builder addServices(dev.remine.guilder.rpc.types.Services.Service value) {
         if (servicesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1863,10 +1194,10 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder addServices(
-          int index, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService value) {
+          int index, dev.remine.guilder.rpc.types.Services.Service value) {
         if (servicesBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1884,10 +1215,10 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder addServices(
-          dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder builderForValue) {
+          dev.remine.guilder.rpc.types.Services.Service.Builder builderForValue) {
         if (servicesBuilder_ == null) {
           ensureServicesIsMutable();
           services_.add(builderForValue.build());
@@ -1902,10 +1233,10 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder addServices(
-          int index, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder builderForValue) {
+          int index, dev.remine.guilder.rpc.types.Services.Service.Builder builderForValue) {
         if (servicesBuilder_ == null) {
           ensureServicesIsMutable();
           services_.add(index, builderForValue.build());
@@ -1920,10 +1251,10 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder addAllServices(
-          java.lang.Iterable<? extends dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> values) {
+          java.lang.Iterable<? extends dev.remine.guilder.rpc.types.Services.Service> values) {
         if (servicesBuilder_ == null) {
           ensureServicesIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1939,7 +1270,7 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder clearServices() {
         if (servicesBuilder_ == null) {
@@ -1956,7 +1287,7 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
       public Builder removeServices(int index) {
         if (servicesBuilder_ == null) {
@@ -1973,9 +1304,9 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder getServicesBuilder(
+      public dev.remine.guilder.rpc.types.Services.Service.Builder getServicesBuilder(
           int index) {
         return getServicesFieldBuilder().getBuilder(index);
       }
@@ -1984,9 +1315,9 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder getServicesOrBuilder(
+      public dev.remine.guilder.rpc.types.Services.ServiceOrBuilder getServicesOrBuilder(
           int index) {
         if (servicesBuilder_ == null) {
           return services_.get(index);  } else {
@@ -1998,9 +1329,9 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public java.util.List<? extends dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder> 
+      public java.util.List<? extends dev.remine.guilder.rpc.types.Services.ServiceOrBuilder> 
            getServicesOrBuilderList() {
         if (servicesBuilder_ != null) {
           return servicesBuilder_.getMessageOrBuilderList();
@@ -2013,41 +1344,41 @@ public final class HandshakeOuterClass {
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder addServicesBuilder() {
+      public dev.remine.guilder.rpc.types.Services.Service.Builder addServicesBuilder() {
         return getServicesFieldBuilder().addBuilder(
-            dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.getDefaultInstance());
+            dev.remine.guilder.rpc.types.Services.Service.getDefaultInstance());
       }
       /**
        * <pre>
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder addServicesBuilder(
+      public dev.remine.guilder.rpc.types.Services.Service.Builder addServicesBuilder(
           int index) {
         return getServicesFieldBuilder().addBuilder(
-            index, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.getDefaultInstance());
+            index, dev.remine.guilder.rpc.types.Services.Service.getDefaultInstance());
       }
       /**
        * <pre>
        *A list of the services needed by the client for setup.
        * </pre>
        *
-       * <code>repeated .Loadbalancer.ClientService services = 3;</code>
+       * <code>repeated .Types.Service services = 3;</code>
        */
-      public java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder> 
+      public java.util.List<dev.remine.guilder.rpc.types.Services.Service.Builder> 
            getServicesBuilderList() {
         return getServicesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder> 
+          dev.remine.guilder.rpc.types.Services.Service, dev.remine.guilder.rpc.types.Services.Service.Builder, dev.remine.guilder.rpc.types.Services.ServiceOrBuilder> 
           getServicesFieldBuilder() {
         if (servicesBuilder_ == null) {
           servicesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder>(
+              dev.remine.guilder.rpc.types.Services.Service, dev.remine.guilder.rpc.types.Services.Service.Builder, dev.remine.guilder.rpc.types.Services.ServiceOrBuilder>(
                   services_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -2106,11 +1437,6 @@ public final class HandshakeOuterClass {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Loadbalancer_ClientService_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Loadbalancer_ClientService_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Loadbalancer_HandshakeRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2130,15 +1456,13 @@ public final class HandshakeOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\034loadbalancer/handshake.proto\022\014Loadbala" +
-      "ncer\032\024types/services.proto\"O\n\rClientServ" +
-      "ice\022$\n\013ServiceType\030\001 \001(\0162\017.Types.Service" +
-      "s\022\n\n\002Ip\030\002 \001(\t\022\014\n\004Port\030\003 \001(\005\"\036\n\020Handshake" +
-      "Request\022\n\n\002Id\030\001 \001(\t\"E\n\024ClientHandshakeRe" +
-      "ply\022-\n\010services\030\003 \003(\0132\033.Loadbalancer.Cli" +
-      "entService2d\n\tHandshake\022W\n\017HandshakeClie" +
-      "nt\022\036.Loadbalancer.HandshakeRequest\032\".Loa" +
-      "dbalancer.ClientHandshakeReply\"\000B%\n#dev." +
-      "remine.guilder.rpc.loadbalancerb\006proto3"
+      "ncer\032\024types/services.proto\"\036\n\020HandshakeR" +
+      "equest\022\n\n\002Id\030\001 \001(\t\"8\n\024ClientHandshakeRep" +
+      "ly\022 \n\010services\030\003 \003(\0132\016.Types.Service2d\n\t" +
+      "Handshake\022W\n\017HandshakeClient\022\036.Loadbalan" +
+      "cer.HandshakeRequest\032\".Loadbalancer.Clie" +
+      "ntHandshakeReply\"\000B%\n#dev.remine.guilder" +
+      ".rpc.loadbalancerb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2151,27 +1475,21 @@ public final class HandshakeOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          dev.remine.guilder.rpc.types.ServicesOuterClass.getDescriptor(),
+          dev.remine.guilder.rpc.types.Services.getDescriptor(),
         }, assigner);
-    internal_static_Loadbalancer_ClientService_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_Loadbalancer_ClientService_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Loadbalancer_ClientService_descriptor,
-        new java.lang.String[] { "ServiceType", "Ip", "Port", });
     internal_static_Loadbalancer_HandshakeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_Loadbalancer_HandshakeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Loadbalancer_HandshakeRequest_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_Loadbalancer_ClientHandshakeReply_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_Loadbalancer_ClientHandshakeReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Loadbalancer_ClientHandshakeReply_descriptor,
         new java.lang.String[] { "Services", });
-    dev.remine.guilder.rpc.types.ServicesOuterClass.getDescriptor();
+    dev.remine.guilder.rpc.types.Services.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

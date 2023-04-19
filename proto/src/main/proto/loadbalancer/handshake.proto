@@ -17,14 +17,6 @@ service Handshake
 //For example: it will provide a service Type PLAYERS with the IP 127.0.0.1 and the Port 50014,
 //so when a Spigot server tries to retrieve information of a player it will be able to make a connection to that
 //service.
-message ClientService
-{
-
-  Types.Services ServiceType = 1;
-  string Ip = 2;
-  int32 Port = 3;
-}
-
 message HandshakeRequest
 {
   //Server Id so we know what services we have to send.
@@ -34,5 +26,5 @@ message HandshakeRequest
 message ClientHandshakeReply
 {
   //A list of the services needed by the client for setup.
-  repeated ClientService services = 3;
+  repeated Types.Service services = 3;
 }

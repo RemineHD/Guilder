@@ -4,7 +4,7 @@ package Types;
 
 option java_package = "dev.remine.guilder.rpc.types";
 
-enum Services
+enum ServiceType
 {
   LOAD_BALANCER = 0;
   PLAYERS = 1;
@@ -14,4 +14,22 @@ enum Services
   GUILDS = 5;
   ADMIN = 6;
   BATTLE_PASS = 7;
+}
+
+enum ServiceState
+{
+  CRAFTED = 0;
+  RUNNING = 1;
+  STOPPED = 2;
+  DELETED = 3;
+}
+
+message Service
+{
+  string Id = 1;
+  ServiceType ServiceType = 2;
+  ServiceState ServiceState = 3;
+  string Ip = 4;
+  int32 Port = 5;
+
 }
