@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "dev.remine.guilder.rpc.types";
+
+package Types;
+
+enum WorldTime
+{
+  MORNING = 0;
+  DAY = 1;
+  AFTERNOON = 2;
+  NIGHT = 3;
+}

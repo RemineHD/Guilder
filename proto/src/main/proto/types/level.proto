@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "dev.remine.guilder.rpc.types";
+
+package Types;
+
+enum Level
+{
+  NONE = 0;
+  LOW = 1;
+  MEDIUM = 2;
+  MAX = 3;
+}

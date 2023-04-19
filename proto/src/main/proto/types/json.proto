@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "dev.remine.guilder.rpc.types";
+
+package Types;
+
+message Json
+{
+  string JsonText = 1;
+}

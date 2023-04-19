@@ -1,8 +1,5 @@
 
-.idea/discord.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+.idea/
 api/loadbalancer/target/
 api/players/target/
 api/servers/target/

@@ -2,6 +2,7 @@ package dev.remine.guilder.api.loadbalancer.handshake;
 
 import dev.remine.guilder.rpc.loadbalancer.HandshakeGrpc;
 import dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass;
+import dev.remine.guilder.rpc.types.ServicesOuterClass;
 import io.grpc.stub.StreamObserver;
 
 import java.util.ArrayList;
@@ -27,14 +28,13 @@ public class HandshakeImpl extends HandshakeGrpc.HandshakeImplBase {
         List<HandshakeOuterClass.ClientService> clientServices = new ArrayList<>();
         clientServices.add(
                 HandshakeOuterClass.ClientService.newBuilder()
-                        .setIp("127.0.0.1")
+                        .setServiceType(ServicesOuterClass.Services.ADMIN)
+                        .setIp(handshakeRequest.getId())
                         .setPort(25565)
                         .build()
         );
 
         HandshakeOuterClass.ClientHandshakeReply reply = HandshakeOuterClass.ClientHandshakeReply.newBuilder()
-                .setId("Welcome")
-                .setAuthKey("NAH")
                 .addAllServices(clientServices)
                 .build();
 

@@ -19,17 +19,26 @@ public final class HandshakeOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string Ip = 1;</code>
+     * <code>.Types.Services ServiceType = 1;</code>
+     */
+    int getServiceTypeValue();
+    /**
+     * <code>.Types.Services ServiceType = 1;</code>
+     */
+    dev.remine.guilder.rpc.types.ServicesOuterClass.Services getServiceType();
+
+    /**
+     * <code>string Ip = 2;</code>
      */
     java.lang.String getIp();
     /**
-     * <code>string Ip = 1;</code>
+     * <code>string Ip = 2;</code>
      */
     com.google.protobuf.ByteString
         getIpBytes();
 
     /**
-     * <code>int32 Port = 2;</code>
+     * <code>int32 Port = 3;</code>
      */
     int getPort();
   }
@@ -52,6 +61,7 @@ public final class HandshakeOuterClass {
       super(builder);
     }
     private ClientService() {
+      serviceType_ = 0;
       ip_ = "";
       port_ = 0;
     }
@@ -81,13 +91,19 @@ public final class HandshakeOuterClass {
               }
               break;
             }
-            case 10: {
+            case 8: {
+              int rawValue = input.readEnum();
+
+              serviceType_ = rawValue;
+              break;
+            }
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
               ip_ = s;
               break;
             }
-            case 16: {
+            case 24: {
 
               port_ = input.readInt32();
               break;
@@ -115,117 +131,26 @@ public final class HandshakeOuterClass {
               dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.class, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder.class);
     }
 
+    public static final int SERVICETYPE_FIELD_NUMBER = 1;
+    private int serviceType_;
     /**
-     * Protobuf enum {@code Loadbalancer.ClientService.Type}
+     * <code>.Types.Services ServiceType = 1;</code>
      */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>PLAYERS = 0;</code>
-       */
-      PLAYERS(0),
-      /**
-       * <code>SERVERS = 1;</code>
-       */
-      SERVERS(1),
-      /**
-       * <code>WORLDS = 2;</code>
-       */
-      WORLDS(2),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>PLAYERS = 0;</code>
-       */
-      public static final int PLAYERS_VALUE = 0;
-      /**
-       * <code>SERVERS = 1;</code>
-       */
-      public static final int SERVERS_VALUE = 1;
-      /**
-       * <code>WORLDS = 2;</code>
-       */
-      public static final int WORLDS_VALUE = 2;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static Type valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static Type forNumber(int value) {
-        switch (value) {
-          case 0: return PLAYERS;
-          case 1: return SERVERS;
-          case 2: return WORLDS;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          Type> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private Type(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:Loadbalancer.ClientService.Type)
+    public int getServiceTypeValue() {
+      return serviceType_;
+    }
+    /**
+     * <code>.Types.Services ServiceType = 1;</code>
+     */
+    public dev.remine.guilder.rpc.types.ServicesOuterClass.Services getServiceType() {
+      dev.remine.guilder.rpc.types.ServicesOuterClass.Services result = dev.remine.guilder.rpc.types.ServicesOuterClass.Services.valueOf(serviceType_);
+      return result == null ? dev.remine.guilder.rpc.types.ServicesOuterClass.Services.UNRECOGNIZED : result;
     }
 
-    public static final int IP_FIELD_NUMBER = 1;
+    public static final int IP_FIELD_NUMBER = 2;
     private volatile java.lang.Object ip_;
     /**
-     * <code>string Ip = 1;</code>
+     * <code>string Ip = 2;</code>
      */
     public java.lang.String getIp() {
       java.lang.Object ref = ip_;
@@ -240,7 +165,7 @@ public final class HandshakeOuterClass {
       }
     }
     /**
-     * <code>string Ip = 1;</code>
+     * <code>string Ip = 2;</code>
      */
     public com.google.protobuf.ByteString
         getIpBytes() {
@@ -256,10 +181,10 @@ public final class HandshakeOuterClass {
       }
     }
 
-    public static final int PORT_FIELD_NUMBER = 2;
+    public static final int PORT_FIELD_NUMBER = 3;
     private int port_;
     /**
-     * <code>int32 Port = 2;</code>
+     * <code>int32 Port = 3;</code>
      */
     public int getPort() {
       return port_;
@@ -277,11 +202,14 @@ public final class HandshakeOuterClass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (serviceType_ != dev.remine.guilder.rpc.types.ServicesOuterClass.Services.LOAD_BALANCER.getNumber()) {
+        output.writeEnum(1, serviceType_);
+      }
       if (!getIpBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, ip_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, ip_);
       }
       if (port_ != 0) {
-        output.writeInt32(2, port_);
+        output.writeInt32(3, port_);
       }
     }
 
@@ -290,12 +218,16 @@ public final class HandshakeOuterClass {
       if (size != -1) return size;
 
       size = 0;
+      if (serviceType_ != dev.remine.guilder.rpc.types.ServicesOuterClass.Services.LOAD_BALANCER.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, serviceType_);
+      }
       if (!getIpBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, ip_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, ip_);
       }
       if (port_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, port_);
+          .computeInt32Size(3, port_);
       }
       memoizedSize = size;
       return size;
@@ -313,6 +245,7 @@ public final class HandshakeOuterClass {
       dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService other = (dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService) obj;
 
       boolean result = true;
+      result = result && serviceType_ == other.serviceType_;
       result = result && getIp()
           .equals(other.getIp());
       result = result && (getPort()
@@ -327,6 +260,8 @@ public final class HandshakeOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SERVICETYPE_FIELD_NUMBER;
+      hash = (53 * hash) + serviceType_;
       hash = (37 * hash) + IP_FIELD_NUMBER;
       hash = (53 * hash) + getIp().hashCode();
       hash = (37 * hash) + PORT_FIELD_NUMBER;
@@ -467,6 +402,8 @@ public final class HandshakeOuterClass {
       }
       public Builder clear() {
         super.clear();
+        serviceType_ = 0;
+
         ip_ = "";
 
         port_ = 0;
@@ -493,6 +430,7 @@ public final class HandshakeOuterClass {
 
       public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService buildPartial() {
         dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService result = new dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService(this);
+        result.serviceType_ = serviceType_;
         result.ip_ = ip_;
         result.port_ = port_;
         onBuilt();
@@ -536,6 +474,9 @@ public final class HandshakeOuterClass {
 
       public Builder mergeFrom(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService other) {
         if (other == dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.getDefaultInstance()) return this;
+        if (other.serviceType_ != 0) {
+          setServiceTypeValue(other.getServiceTypeValue());
+        }
         if (!other.getIp().isEmpty()) {
           ip_ = other.ip_;
           onChanged();
@@ -569,9 +510,53 @@ public final class HandshakeOuterClass {
         return this;
       }
 
+      private int serviceType_ = 0;
+      /**
+       * <code>.Types.Services ServiceType = 1;</code>
+       */
+      public int getServiceTypeValue() {
+        return serviceType_;
+      }
+      /**
+       * <code>.Types.Services ServiceType = 1;</code>
+       */
+      public Builder setServiceTypeValue(int value) {
+        serviceType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Types.Services ServiceType = 1;</code>
+       */
+      public dev.remine.guilder.rpc.types.ServicesOuterClass.Services getServiceType() {
+        dev.remine.guilder.rpc.types.ServicesOuterClass.Services result = dev.remine.guilder.rpc.types.ServicesOuterClass.Services.valueOf(serviceType_);
+        return result == null ? dev.remine.guilder.rpc.types.ServicesOuterClass.Services.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.Types.Services ServiceType = 1;</code>
+       */
+      public Builder setServiceType(dev.remine.guilder.rpc.types.ServicesOuterClass.Services value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        serviceType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.Types.Services ServiceType = 1;</code>
+       */
+      public Builder clearServiceType() {
+        
+        serviceType_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object ip_ = "";
       /**
-       * <code>string Ip = 1;</code>
+       * <code>string Ip = 2;</code>
        */
       public java.lang.String getIp() {
         java.lang.Object ref = ip_;
@@ -586,7 +571,7 @@ public final class HandshakeOuterClass {
         }
       }
       /**
-       * <code>string Ip = 1;</code>
+       * <code>string Ip = 2;</code>
        */
       public com.google.protobuf.ByteString
           getIpBytes() {
@@ -602,7 +587,7 @@ public final class HandshakeOuterClass {
         }
       }
       /**
-       * <code>string Ip = 1;</code>
+       * <code>string Ip = 2;</code>
        */
       public Builder setIp(
           java.lang.String value) {
@@ -615,7 +600,7 @@ public final class HandshakeOuterClass {
         return this;
       }
       /**
-       * <code>string Ip = 1;</code>
+       * <code>string Ip = 2;</code>
        */
       public Builder clearIp() {
         
@@ -624,7 +609,7 @@ public final class HandshakeOuterClass {
         return this;
       }
       /**
-       * <code>string Ip = 1;</code>
+       * <code>string Ip = 2;</code>
        */
       public Builder setIpBytes(
           com.google.protobuf.ByteString value) {
@@ -640,13 +625,13 @@ public final class HandshakeOuterClass {
 
       private int port_ ;
       /**
-       * <code>int32 Port = 2;</code>
+       * <code>int32 Port = 3;</code>
        */
       public int getPort() {
         return port_;
       }
       /**
-       * <code>int32 Port = 2;</code>
+       * <code>int32 Port = 3;</code>
        */
       public Builder setPort(int value) {
         
@@ -655,7 +640,7 @@ public final class HandshakeOuterClass {
         return this;
       }
       /**
-       * <code>int32 Port = 2;</code>
+       * <code>int32 Port = 3;</code>
        */
       public Builder clearPort() {
         
@@ -718,27 +703,21 @@ public final class HandshakeOuterClass {
 
     /**
      * <pre>
-     *The handshakeToken is a temporal one use token generated by the servers microservice.
-     *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-     *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-     * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+     *Server Id so we know what services we have to send.
      * </pre>
      *
-     * <code>string handshakeToken = 1;</code>
+     * <code>string Id = 1;</code>
      */
-    java.lang.String getHandshakeToken();
+    java.lang.String getId();
     /**
      * <pre>
-     *The handshakeToken is a temporal one use token generated by the servers microservice.
-     *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-     *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-     * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+     *Server Id so we know what services we have to send.
      * </pre>
      *
-     * <code>string handshakeToken = 1;</code>
+     * <code>string Id = 1;</code>
      */
     com.google.protobuf.ByteString
-        getHandshakeTokenBytes();
+        getIdBytes();
   }
   /**
    * Protobuf type {@code Loadbalancer.HandshakeRequest}
@@ -752,7 +731,7 @@ public final class HandshakeOuterClass {
       super(builder);
     }
     private HandshakeRequest() {
-      handshakeToken_ = "";
+      id_ = "";
     }
 
     @java.lang.Override
@@ -783,7 +762,7 @@ public final class HandshakeOuterClass {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              handshakeToken_ = s;
+              id_ = s;
               break;
             }
           }
@@ -809,48 +788,42 @@ public final class HandshakeOuterClass {
               dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest.class, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest.Builder.class);
     }
 
-    public static final int HANDSHAKETOKEN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object handshakeToken_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
     /**
      * <pre>
-     *The handshakeToken is a temporal one use token generated by the servers microservice.
-     *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-     *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-     * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+     *Server Id so we know what services we have to send.
      * </pre>
      *
-     * <code>string handshakeToken = 1;</code>
+     * <code>string Id = 1;</code>
      */
-    public java.lang.String getHandshakeToken() {
-      java.lang.Object ref = handshakeToken_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        handshakeToken_ = s;
+        id_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     *The handshakeToken is a temporal one use token generated by the servers microservice.
-     *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-     *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-     * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+     *Server Id so we know what services we have to send.
      * </pre>
      *
-     * <code>string handshakeToken = 1;</code>
+     * <code>string Id = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getHandshakeTokenBytes() {
-      java.lang.Object ref = handshakeToken_;
+        getIdBytes() {
+      java.lang.Object ref = id_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        handshakeToken_ = b;
+        id_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -869,8 +842,8 @@ public final class HandshakeOuterClass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getHandshakeTokenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, handshakeToken_);
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
     }
 
@@ -879,8 +852,8 @@ public final class HandshakeOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getHandshakeTokenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, handshakeToken_);
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
       memoizedSize = size;
       return size;
@@ -898,8 +871,8 @@ public final class HandshakeOuterClass {
       dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest other = (dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest) obj;
 
       boolean result = true;
-      result = result && getHandshakeToken()
-          .equals(other.getHandshakeToken());
+      result = result && getId()
+          .equals(other.getId());
       return result;
     }
 
@@ -910,8 +883,8 @@ public final class HandshakeOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + HANDSHAKETOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getHandshakeToken().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1041,7 +1014,7 @@ public final class HandshakeOuterClass {
       }
       public Builder clear() {
         super.clear();
-        handshakeToken_ = "";
+        id_ = "";
 
         return this;
       }
@@ -1065,7 +1038,7 @@ public final class HandshakeOuterClass {
 
       public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest buildPartial() {
         dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest result = new dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest(this);
-        result.handshakeToken_ = handshakeToken_;
+        result.id_ = id_;
         onBuilt();
         return result;
       }
@@ -1107,8 +1080,8 @@ public final class HandshakeOuterClass {
 
       public Builder mergeFrom(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest other) {
         if (other == dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest.getDefaultInstance()) return this;
-        if (!other.getHandshakeToken().isEmpty()) {
-          handshakeToken_ = other.handshakeToken_;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
           onChanged();
         }
         onChanged();
@@ -1137,24 +1110,21 @@ public final class HandshakeOuterClass {
         return this;
       }
 
-      private java.lang.Object handshakeToken_ = "";
+      private java.lang.Object id_ = "";
       /**
        * <pre>
-       *The handshakeToken is a temporal one use token generated by the servers microservice.
-       *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-       *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-       * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+       *Server Id so we know what services we have to send.
        * </pre>
        *
-       * <code>string handshakeToken = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public java.lang.String getHandshakeToken() {
-        java.lang.Object ref = handshakeToken_;
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          handshakeToken_ = s;
+          id_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1162,22 +1132,19 @@ public final class HandshakeOuterClass {
       }
       /**
        * <pre>
-       *The handshakeToken is a temporal one use token generated by the servers microservice.
-       *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-       *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-       * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+       *Server Id so we know what services we have to send.
        * </pre>
        *
-       * <code>string handshakeToken = 1;</code>
+       * <code>string Id = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getHandshakeTokenBytes() {
-        java.lang.Object ref = handshakeToken_;
+          getIdBytes() {
+        java.lang.Object ref = id_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          handshakeToken_ = b;
+          id_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -1185,58 +1152,49 @@ public final class HandshakeOuterClass {
       }
       /**
        * <pre>
-       *The handshakeToken is a temporal one use token generated by the servers microservice.
-       *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-       *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-       * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+       *Server Id so we know what services we have to send.
        * </pre>
        *
-       * <code>string handshakeToken = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public Builder setHandshakeToken(
+      public Builder setId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        handshakeToken_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *The handshakeToken is a temporal one use token generated by the servers microservice.
-       *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-       *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-       * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+       *Server Id so we know what services we have to send.
        * </pre>
        *
-       * <code>string handshakeToken = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public Builder clearHandshakeToken() {
+      public Builder clearId() {
         
-        handshakeToken_ = getDefaultInstance().getHandshakeToken();
+        id_ = getDefaultInstance().getId();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *The handshakeToken is a temporal one use token generated by the servers microservice.
-       *the client (Spigot/Proxy) will use it to retrieve the real token. The real token will be linked with the Client
-       *so the api can know its permissions level (which service may use or might not Example: Proxy doesn't need access to
-       * the Worlds Microservice, so it won't because the World Microservice will recognize the token and close the connection)
+       *Server Id so we know what services we have to send.
        * </pre>
        *
-       * <code>string handshakeToken = 1;</code>
+       * <code>string Id = 1;</code>
        */
-      public Builder setHandshakeTokenBytes(
+      public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        handshakeToken_ = value;
+        id_ = value;
         onChanged();
         return this;
       }
@@ -1295,42 +1253,6 @@ public final class HandshakeOuterClass {
 
     /**
      * <pre>
-     *Client Id, it may be useful for Debug/Development tasks
-     * </pre>
-     *
-     * <code>string Id = 1;</code>
-     */
-    java.lang.String getId();
-    /**
-     * <pre>
-     *Client Id, it may be useful for Debug/Development tasks
-     * </pre>
-     *
-     * <code>string Id = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getIdBytes();
-
-    /**
-     * <pre>
-     *The final AuthKey provided by JWT
-     * </pre>
-     *
-     * <code>string authKey = 2;</code>
-     */
-    java.lang.String getAuthKey();
-    /**
-     * <pre>
-     *The final AuthKey provided by JWT
-     * </pre>
-     *
-     * <code>string authKey = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getAuthKeyBytes();
-
-    /**
-     * <pre>
      *A list of the services needed by the client for setup.
      * </pre>
      *
@@ -1385,8 +1307,6 @@ public final class HandshakeOuterClass {
       super(builder);
     }
     private ClientHandshakeReply() {
-      id_ = "";
-      authKey_ = "";
       services_ = java.util.Collections.emptyList();
     }
 
@@ -1415,22 +1335,10 @@ public final class HandshakeOuterClass {
               }
               break;
             }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              authKey_ = s;
-              break;
-            }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 services_ = new java.util.ArrayList<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000001;
               }
               services_.add(
                   input.readMessage(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.parser(), extensionRegistry));
@@ -1444,7 +1352,7 @@ public final class HandshakeOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           services_ = java.util.Collections.unmodifiableList(services_);
         }
         makeExtensionsImmutable();
@@ -1460,91 +1368,6 @@ public final class HandshakeOuterClass {
       return dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.internal_static_Loadbalancer_ClientHandshakeReply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply.class, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
-    /**
-     * <pre>
-     *Client Id, it may be useful for Debug/Development tasks
-     * </pre>
-     *
-     * <code>string Id = 1;</code>
-     */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        id_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *Client Id, it may be useful for Debug/Development tasks
-     * </pre>
-     *
-     * <code>string Id = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        id_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int AUTHKEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object authKey_;
-    /**
-     * <pre>
-     *The final AuthKey provided by JWT
-     * </pre>
-     *
-     * <code>string authKey = 2;</code>
-     */
-    public java.lang.String getAuthKey() {
-      java.lang.Object ref = authKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        authKey_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *The final AuthKey provided by JWT
-     * </pre>
-     *
-     * <code>string authKey = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getAuthKeyBytes() {
-      java.lang.Object ref = authKey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        authKey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
     }
 
     public static final int SERVICES_FIELD_NUMBER = 3;
@@ -1614,12 +1437,6 @@ public final class HandshakeOuterClass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
-      }
-      if (!getAuthKeyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, authKey_);
-      }
       for (int i = 0; i < services_.size(); i++) {
         output.writeMessage(3, services_.get(i));
       }
@@ -1630,12 +1447,6 @@ public final class HandshakeOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
-      }
-      if (!getAuthKeyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, authKey_);
-      }
       for (int i = 0; i < services_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, services_.get(i));
@@ -1656,10 +1467,6 @@ public final class HandshakeOuterClass {
       dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply other = (dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply) obj;
 
       boolean result = true;
-      result = result && getId()
-          .equals(other.getId());
-      result = result && getAuthKey()
-          .equals(other.getAuthKey());
       result = result && getServicesList()
           .equals(other.getServicesList());
       return result;
@@ -1672,10 +1479,6 @@ public final class HandshakeOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
-      hash = (37 * hash) + AUTHKEY_FIELD_NUMBER;
-      hash = (53 * hash) + getAuthKey().hashCode();
       if (getServicesCount() > 0) {
         hash = (37 * hash) + SERVICES_FIELD_NUMBER;
         hash = (53 * hash) + getServicesList().hashCode();
@@ -1810,13 +1613,9 @@ public final class HandshakeOuterClass {
       }
       public Builder clear() {
         super.clear();
-        id_ = "";
-
-        authKey_ = "";
-
         if (servicesBuilder_ == null) {
           services_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           servicesBuilder_.clear();
         }
@@ -1843,19 +1642,15 @@ public final class HandshakeOuterClass {
       public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply buildPartial() {
         dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply result = new dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply(this);
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.id_ = id_;
-        result.authKey_ = authKey_;
         if (servicesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
             services_ = java.util.Collections.unmodifiableList(services_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.services_ = services_;
         } else {
           result.services_ = servicesBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1897,19 +1692,11 @@ public final class HandshakeOuterClass {
 
       public Builder mergeFrom(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply other) {
         if (other == dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply.getDefaultInstance()) return this;
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
-          onChanged();
-        }
-        if (!other.getAuthKey().isEmpty()) {
-          authKey_ = other.authKey_;
-          onChanged();
-        }
         if (servicesBuilder_ == null) {
           if (!other.services_.isEmpty()) {
             if (services_.isEmpty()) {
               services_ = other.services_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureServicesIsMutable();
               services_.addAll(other.services_);
@@ -1922,7 +1709,7 @@ public final class HandshakeOuterClass {
               servicesBuilder_.dispose();
               servicesBuilder_ = null;
               services_ = other.services_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               servicesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getServicesFieldBuilder() : null;
@@ -1958,190 +1745,12 @@ public final class HandshakeOuterClass {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
-      /**
-       * <pre>
-       *Client Id, it may be useful for Debug/Development tasks
-       * </pre>
-       *
-       * <code>string Id = 1;</code>
-       */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          id_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *Client Id, it may be useful for Debug/Development tasks
-       * </pre>
-       *
-       * <code>string Id = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          id_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *Client Id, it may be useful for Debug/Development tasks
-       * </pre>
-       *
-       * <code>string Id = 1;</code>
-       */
-      public Builder setId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *Client Id, it may be useful for Debug/Development tasks
-       * </pre>
-       *
-       * <code>string Id = 1;</code>
-       */
-      public Builder clearId() {
-        
-        id_ = getDefaultInstance().getId();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *Client Id, it may be useful for Debug/Development tasks
-       * </pre>
-       *
-       * <code>string Id = 1;</code>
-       */
-      public Builder setIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object authKey_ = "";
-      /**
-       * <pre>
-       *The final AuthKey provided by JWT
-       * </pre>
-       *
-       * <code>string authKey = 2;</code>
-       */
-      public java.lang.String getAuthKey() {
-        java.lang.Object ref = authKey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          authKey_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *The final AuthKey provided by JWT
-       * </pre>
-       *
-       * <code>string authKey = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getAuthKeyBytes() {
-        java.lang.Object ref = authKey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          authKey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *The final AuthKey provided by JWT
-       * </pre>
-       *
-       * <code>string authKey = 2;</code>
-       */
-      public Builder setAuthKey(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        authKey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *The final AuthKey provided by JWT
-       * </pre>
-       *
-       * <code>string authKey = 2;</code>
-       */
-      public Builder clearAuthKey() {
-        
-        authKey_ = getDefaultInstance().getAuthKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *The final AuthKey provided by JWT
-       * </pre>
-       *
-       * <code>string authKey = 2;</code>
-       */
-      public Builder setAuthKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        authKey_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.util.List<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService> services_ =
         java.util.Collections.emptyList();
       private void ensureServicesIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           services_ = new java.util.ArrayList<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService>(services_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2335,7 +1944,7 @@ public final class HandshakeOuterClass {
       public Builder clearServices() {
         if (servicesBuilder_ == null) {
           services_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           servicesBuilder_.clear();
@@ -2440,7 +2049,7 @@ public final class HandshakeOuterClass {
           servicesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientService.Builder, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientServiceOrBuilder>(
                   services_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           services_ = null;
@@ -2521,16 +2130,15 @@ public final class HandshakeOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\034loadbalancer/handshake.proto\022\014Loadbala" +
-      "ncer\"W\n\rClientService\022\n\n\002Ip\030\001 \001(\t\022\014\n\004Por" +
-      "t\030\002 \001(\005\",\n\004Type\022\013\n\007PLAYERS\020\000\022\013\n\007SERVERS\020" +
-      "\001\022\n\n\006WORLDS\020\002\"*\n\020HandshakeRequest\022\026\n\016han" +
-      "dshakeToken\030\001 \001(\t\"b\n\024ClientHandshakeRepl" +
-      "y\022\n\n\002Id\030\001 \001(\t\022\017\n\007authKey\030\002 \001(\t\022-\n\010servic" +
-      "es\030\003 \003(\0132\033.Loadbalancer.ClientService2d\n" +
-      "\tHandshake\022W\n\017HandshakeClient\022\036.Loadbala" +
-      "ncer.HandshakeRequest\032\".Loadbalancer.Cli" +
-      "entHandshakeReply\"\000B%\n#dev.remine.guilde",
-      "r.rpc.loadbalancerb\006proto3"
+      "ncer\032\024types/services.proto\"O\n\rClientServ" +
+      "ice\022$\n\013ServiceType\030\001 \001(\0162\017.Types.Service" +
+      "s\022\n\n\002Ip\030\002 \001(\t\022\014\n\004Port\030\003 \001(\005\"\036\n\020Handshake" +
+      "Request\022\n\n\002Id\030\001 \001(\t\"E\n\024ClientHandshakeRe" +
+      "ply\022-\n\010services\030\003 \003(\0132\033.Loadbalancer.Cli" +
+      "entService2d\n\tHandshake\022W\n\017HandshakeClie" +
+      "nt\022\036.Loadbalancer.HandshakeRequest\032\".Loa" +
+      "dbalancer.ClientHandshakeReply\"\000B%\n#dev." +
+      "remine.guilder.rpc.loadbalancerb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2543,25 +2151,27 @@ public final class HandshakeOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          dev.remine.guilder.rpc.types.ServicesOuterClass.getDescriptor(),
         }, assigner);
     internal_static_Loadbalancer_ClientService_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_Loadbalancer_ClientService_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Loadbalancer_ClientService_descriptor,
-        new java.lang.String[] { "Ip", "Port", });
+        new java.lang.String[] { "ServiceType", "Ip", "Port", });
     internal_static_Loadbalancer_HandshakeRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_Loadbalancer_HandshakeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Loadbalancer_HandshakeRequest_descriptor,
-        new java.lang.String[] { "HandshakeToken", });
+        new java.lang.String[] { "Id", });
     internal_static_Loadbalancer_ClientHandshakeReply_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_Loadbalancer_ClientHandshakeReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Loadbalancer_ClientHandshakeReply_descriptor,
-        new java.lang.String[] { "Id", "AuthKey", "Services", });
+        new java.lang.String[] { "Services", });
+    dev.remine.guilder.rpc.types.ServicesOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

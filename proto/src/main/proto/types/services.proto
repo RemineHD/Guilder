@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Types;
+
+option java_package = "dev.remine.guilder.rpc.types";
+
+enum Services
+{
+  LOAD_BALANCER = 0;
+  PLAYERS = 1;
+  SERVERS = 2;
+  WORLDS = 3;
+  MATCHMAKING = 4;
+  GUILDS = 5;
+  ADMIN = 6;
+  BATTLE_PASS = 7;
+}
