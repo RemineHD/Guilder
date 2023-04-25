@@ -20,4 +20,6 @@ public interface ServerService {
      */
     void stop() throws InterruptedException;
 
+    Server getServer();
+
 }

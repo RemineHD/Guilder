@@ -1,5 +1,8 @@
-package dev.remine.guilder.api.loadbalancer.handshake;
+package dev.remine.guilder.api.loadbalancer.imprv.manager.handshake;
 
+import com.google.inject.Guice;
+import dev.remine.guilder.api.loadbalancer.LoadBalancer;
+import dev.remine.guilder.api.loadbalancer.server.ServerService;
 import dev.remine.guilder.rpc.loadbalancer.HandshakeGrpc;
 import dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass;
 import dev.remine.guilder.rpc.types.Services;
@@ -21,7 +24,6 @@ public class HandshakeImpl extends HandshakeGrpc.HandshakeImplBase {
      * @param handshakeRequest
      * @param responseObserver
      */
-
     @Override
     public void handshakeClient(HandshakeOuterClass.HandshakeRequest handshakeRequest, StreamObserver<HandshakeOuterClass.ClientHandshakeReply> responseObserver)
     {

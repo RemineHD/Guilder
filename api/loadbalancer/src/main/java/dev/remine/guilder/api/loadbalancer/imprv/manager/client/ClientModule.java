@@ -1,4 +1,4 @@
-package dev.remine.guilder.api.loadbalancer.manager.client;
+package dev.remine.guilder.api.loadbalancer.imprv.manager.client;
 
 import com.google.inject.AbstractModule;
 

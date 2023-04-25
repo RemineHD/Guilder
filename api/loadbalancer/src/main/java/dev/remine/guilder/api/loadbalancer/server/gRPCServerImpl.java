@@ -1,7 +1,7 @@
 package dev.remine.guilder.api.loadbalancer.server;
 
-import dev.remine.guilder.api.loadbalancer.auth.AuthServerInterceptor;
-import dev.remine.guilder.api.loadbalancer.handshake.HandshakeImpl;
+import dev.remine.guilder.api.loadbalancer.imprv.auth.AuthServerInterceptor;
+import dev.remine.guilder.api.loadbalancer.imprv.manager.handshake.HandshakeImpl;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.Server;

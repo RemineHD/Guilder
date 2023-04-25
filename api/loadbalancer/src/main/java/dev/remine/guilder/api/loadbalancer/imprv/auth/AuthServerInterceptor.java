@@ -1,4 +1,4 @@
-package dev.remine.guilder.api.loadbalancer.auth;
+package dev.remine.guilder.api.loadbalancer.imprv.auth;
 
 import io.grpc.Metadata;
 import io.grpc.ServerCall;

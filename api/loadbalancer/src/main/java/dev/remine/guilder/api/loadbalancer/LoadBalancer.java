@@ -2,8 +2,9 @@ package dev.remine.guilder.api.loadbalancer;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import dev.remine.guilder.api.loadbalancer.manager.client.ClientModule;
-import dev.remine.guilder.api.loadbalancer.manager.service.ServiceModule;
+import dev.remine.guilder.api.loadbalancer.database.DatabaseModule;
+import dev.remine.guilder.api.loadbalancer.imprv.manager.client.ClientModule;
+import dev.remine.guilder.api.loadbalancer.imprv.manager.service.ServiceModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerService;
 import lombok.Getter;
@@ -38,6 +39,7 @@ public class LoadBalancer {
         Injector injector = Guice.createInjector(
                 new ServerModule(),
                 new ClientModule(),
+                new DatabaseModule(),
                 new ServiceModule()
         );
 
