@@ -1,10 +1,10 @@
-package dev.remine.guilder.api.loadbalancer.database;
+package dev.remine.guilder.commons.api.database;
 
 import com.mongodb.client.MongoClient;
 
 public interface DatabaseService {
 
-    void startDatabase();
+    void startDatabase(String url);
 
     void stopDatabase();
 

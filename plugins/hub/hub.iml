@@ -21,6 +21,10 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="core" />
     <orderEntry type="module" module-name="commons" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-sync:4.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:bson:4.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:4.9.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.mongodb:bson-record-codec:4.9.1" level="project" />
     <orderEntry type="module" module-name="proto" />
     <orderEntry type="module" module-name="games" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT" level="project" />

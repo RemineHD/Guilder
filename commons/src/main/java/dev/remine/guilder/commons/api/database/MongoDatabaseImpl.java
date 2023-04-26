@@ -1,4 +1,4 @@
-package dev.remine.guilder.api.loadbalancer.database;
+package dev.remine.guilder.commons.api.database;
 
 import com.google.inject.Inject;
 import com.mongodb.client.MongoClient;
@@ -9,19 +9,19 @@ import java.util.logging.Logger;
 public class MongoDatabaseImpl implements DatabaseService {
 
     private final Logger logger;
-    private final String uri;
 
     private MongoClient mongoClient;
 
     @Inject
-    public MongoDatabaseImpl(Logger logger, String uri)
+    public MongoDatabaseImpl(Logger logger)
     {
         this.logger = logger;
-        this.uri = uri;
     }
 
     @Override
-    public void startDatabase() {
+    public void startDatabase(String uri) {
+
+        logger.info("[MongoDB] Starting MongoDB Client.");
 
         if (uri == null)
         {
@@ -30,6 +30,9 @@ public class MongoDatabaseImpl implements DatabaseService {
         }
 
         mongoClient = MongoClients.create(uri);
+
+        logger.info("[MongoDB] Server started.");
+
         Runtime.getRuntime().addShutdownHook(new Thread(() ->
         {
             logger.warning("[MongoDB] *** shutting down MongoDB Client since JVM is shutting down ***");

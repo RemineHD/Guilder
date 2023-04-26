@@ -1,4 +1,4 @@
-package dev.remine.guilder.api.loadbalancer.database;
+package dev.remine.guilder.commons.api.database;
 
 import com.google.inject.AbstractModule;
 

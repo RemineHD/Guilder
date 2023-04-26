@@ -53,13 +53,16 @@ public class gRPCServerImpl implements ServerService {
 
         try {
             blockUntilShutdown();
-        } catch (InterruptedException interruptedException)
-        {
+        } catch (InterruptedException interruptedException) {
             interruptedException.printStackTrace(System.err);
         }
 
     }
 
+
+    /*
+    Looks the thread so the program doesn't shut down
+     */
     private void blockUntilShutdown() throws InterruptedException
     {
         if (server != null)

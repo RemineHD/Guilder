@@ -2,9 +2,9 @@ package dev.remine.guilder.api.loadbalancer;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import dev.remine.guilder.api.loadbalancer.database.DatabaseModule;
-import dev.remine.guilder.api.loadbalancer.imprv.manager.client.ClientModule;
-import dev.remine.guilder.api.loadbalancer.imprv.manager.service.ServiceModule;
+import dev.remine.guilder.commons.api.database.DatabaseModule;
+import dev.remine.guilder.commons.api.database.DatabaseService;
+import dev.remine.guilder.commons.api.docker.DockerModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerService;
 import lombok.Getter;
@@ -27,8 +27,9 @@ public class LoadBalancer {
      * @param injector Google Guice Injector.
      * @throws IOException In case the server is unable to start correctly.
      */
-    public void start(Injector injector) throws IOException {
+    public void start(Injector injector) throws IOException, InterruptedException {
         this.injector = injector;
+        getInjector().getInstance(DatabaseService.class).startDatabase("mongodb://localhost:27017");
         getInjector().getInstance(ServerService.class).start(getGrpcPort());
     }
 
@@ -38,16 +39,15 @@ public class LoadBalancer {
 
         Injector injector = Guice.createInjector(
                 new ServerModule(),
-                new ClientModule(),
                 new DatabaseModule(),
-                new ServiceModule()
+                new DockerModule()
         );
 
         try {
             injector.getInstance(LoadBalancer.class).start(injector);
-        } catch (IOException ioException)
+        } catch (IOException | InterruptedException exception)
         {
-            ioException.printStackTrace(System.err);
+            exception.printStackTrace(System.err);
         }
 
     }

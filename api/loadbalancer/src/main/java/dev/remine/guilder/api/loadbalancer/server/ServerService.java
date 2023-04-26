@@ -13,7 +13,6 @@ public interface ServerService {
      */
     void start(int port) throws IOException;
 
-
     /**
      * Attempts to shut down the gRPC server.
      * @throws InterruptedException in case the server didn't shut down correctly
