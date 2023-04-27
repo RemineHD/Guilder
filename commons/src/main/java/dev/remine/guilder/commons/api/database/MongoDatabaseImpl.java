@@ -3,31 +3,36 @@ package dev.remine.guilder.commons.api.database;
 import com.google.inject.Inject;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import dev.remine.guilder.commons.api.config.DbConfigProvider;
 
 import java.util.logging.Logger;
 
 public class MongoDatabaseImpl implements DatabaseService {
 
+    private final DbConfigProvider dbConfigProvider;
     private final Logger logger;
 
     private MongoClient mongoClient;
 
     @Inject
-    public MongoDatabaseImpl(Logger logger)
+    public MongoDatabaseImpl(DbConfigProvider dbConfigProvider, Logger logger)
     {
+        this.dbConfigProvider = dbConfigProvider;
         this.logger = logger;
     }
 
     @Override
-    public void startDatabase(String uri) {
+    public void startDatabase() {
 
         logger.info("[MongoDB] Starting MongoDB Client.");
 
-        if (uri == null)
-        {
-            logger.warning("[MongoDB] ERROR: uri is null. Can't start database connection.");
-            return;
-        }
+        String uri = "mongodb://" + dbConfigProvider.getMongoUser()
+                + ":" +
+                dbConfigProvider.getMongoPassword()
+                + "@" +
+                dbConfigProvider.getMongoAddress()
+                + ":" +
+                dbConfigProvider.getMongoPort();
 
         mongoClient = MongoClients.create(uri);
 

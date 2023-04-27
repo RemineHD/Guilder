@@ -38,7 +38,7 @@ public class DbConfigProviderImpl implements DbConfigProvider{
     }
 
     @Override
-    public String getMongoDB() {
+    public String getMongoDatabase() {
         return System.getenv("DB_DATABASE");
     }
 }

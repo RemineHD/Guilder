@@ -4,7 +4,7 @@ import com.mongodb.client.MongoClient;
 
 public interface DatabaseService {
 
-    void startDatabase(String url);
+    void startDatabase();
 
     void stopDatabase();
 

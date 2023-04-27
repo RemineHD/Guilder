@@ -35,6 +35,6 @@ public interface DbConfigProvider {
      * using it, in case the database is not provided this will
      * return Null
      */
-    String getMongoDB();
+    String getMongoDatabase();
 
 }
