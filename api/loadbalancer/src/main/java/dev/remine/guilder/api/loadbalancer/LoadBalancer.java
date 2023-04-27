@@ -2,6 +2,8 @@ package dev.remine.guilder.api.loadbalancer;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import dev.remine.guilder.commons.api.config.ConfigProviderModule;
+import dev.remine.guilder.commons.api.config.DockerConfigProvider;
 import dev.remine.guilder.commons.api.database.DatabaseModule;
 import dev.remine.guilder.commons.api.database.DatabaseService;
 import dev.remine.guilder.commons.api.docker.DockerModule;
@@ -38,10 +40,14 @@ public class LoadBalancer {
         logger.info("[LoadBalancer] *** Starting modules ***");
 
         Injector injector = Guice.createInjector(
+                new ConfigProviderModule(),
                 new ServerModule(),
                 new DatabaseModule(),
                 new DockerModule()
         );
+
+        DockerConfigProvider dockerConfigProvider = injector.getInstance(DockerConfigProvider.class);
+        System.out.println(dockerConfigProvider.getDockerHost());
 
         try {
             injector.getInstance(LoadBalancer.class).start(injector);
