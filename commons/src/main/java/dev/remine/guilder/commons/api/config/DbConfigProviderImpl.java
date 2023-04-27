@@ -17,7 +17,7 @@ public class DbConfigProviderImpl implements DbConfigProvider{
     public Integer getMongoPort() {
         return Objects.requireNonNullElse(
                 Integer.getInteger(System.getenv("DB_PORT")),
-                        270170);
+                        27017);
     }
 
     @Nonnull
