@@ -11,7 +11,7 @@ public interface ServerService {
      * communicate with the MicroService
      * @throws IOException in case the server didn't start correctly
      */
-    void start(int port) throws IOException;
+    void start() throws IOException;
 
     /**
      * Attempts to shut down the gRPC server.

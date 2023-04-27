@@ -19,9 +19,6 @@ public class LoadBalancer {
     private static final Logger logger = Logger.getLogger(LoadBalancer.class.getName());
 
     @Getter
-    private int grpcPort = 50051;
-
-    @Getter
     private Injector injector;
 
     /**
@@ -31,8 +28,8 @@ public class LoadBalancer {
      */
     public void start(Injector injector) throws IOException, InterruptedException {
         this.injector = injector;
-        getInjector().getInstance(DatabaseService.class).startDatabase("mongodb://localhost:27017");
-        getInjector().getInstance(ServerService.class).start(getGrpcPort());
+        getInjector().getInstance(DatabaseService.class).startDatabase();
+        getInjector().getInstance(ServerService.class).start();
     }
 
     public static void main(String[] args) {

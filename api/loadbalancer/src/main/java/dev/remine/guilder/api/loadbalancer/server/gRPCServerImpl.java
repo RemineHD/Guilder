@@ -1,7 +1,9 @@
 package dev.remine.guilder.api.loadbalancer.server;
 
+import com.google.inject.Inject;
 import dev.remine.guilder.api.loadbalancer.imprv.auth.AuthServerInterceptor;
 import dev.remine.guilder.api.loadbalancer.imprv.manager.handshake.HandshakeImpl;
+import dev.remine.guilder.commons.api.config.gRPCConfigProvider;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
 import io.grpc.Server;
@@ -13,27 +15,31 @@ import java.util.logging.Logger;
 
 public class gRPCServerImpl implements ServerService {
 
-    static Logger logger = Logger.getLogger(ServerModule.class.getName());
-
-    int port;
+    private final gRPCConfigProvider gRPCConfigProvider;
+    private final Logger logger;
 
     @Getter
     Server server;
 
-    @Override
-    public void start(int port) throws IOException {
+    @Inject
+    public gRPCServerImpl(gRPCConfigProvider gRPCConfigProvider, Logger logger)
+    {
+        this.gRPCConfigProvider = gRPCConfigProvider;
+        this.logger = logger;
+    }
 
-        this.port = port;
+    @Override
+    public void start() throws IOException {
 
         /**
          * Here we start the gRPC server. All the Guilder MicroServices will use the exact same configuration.
          */
-        server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
+        server = Grpc.newServerBuilderForPort(gRPCConfigProvider.getPort(), InsecureServerCredentials.create())
                 .addService(new HandshakeImpl())
                 .intercept(new AuthServerInterceptor())
                 .build()
                 .start();
-        logger.info("[gRPC] Server started, listening on: " + port);
+        logger.info("[gRPC] Server started, listening on: " + gRPCConfigProvider.getPort());
 
         /**
          * This Runtime Hook will be called on shutdown, so the gRPC Server can shut down correctly
