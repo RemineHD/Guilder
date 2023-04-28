@@ -3,6 +3,7 @@ package dev.remine.guilder.commons.api.database;
 import com.google.inject.Inject;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoDatabase;
 import dev.remine.guilder.commons.api.config.DbConfigProvider;
 
 import java.util.logging.Logger;
@@ -35,6 +36,10 @@ public class MongoDatabaseImpl implements DatabaseService {
                 dbConfigProvider.getMongoPort();
 
         mongoClient = MongoClients.create(uri);
+
+        MongoDatabase mongoDatabase = mongoClient.getDatabase("worlds");
+
+        System.out.println(mongoDatabase.getCollection("worlds").countDocuments());
 
         logger.info("[MongoDB] Server started.");
 

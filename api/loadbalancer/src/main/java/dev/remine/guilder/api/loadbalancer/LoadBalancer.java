@@ -1,18 +1,22 @@
 package dev.remine.guilder.api.loadbalancer;
 
+import com.github.dockerjava.api.DockerClient;
+import com.github.dockerjava.core.DockerClientImpl;
+import com.github.dockerjava.transport.DockerHttpClient;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import dev.remine.guilder.commons.api.config.ConfigProviderModule;
-import dev.remine.guilder.commons.api.config.DockerConfigProvider;
 import dev.remine.guilder.commons.api.database.DatabaseModule;
-import dev.remine.guilder.commons.api.database.DatabaseService;
-import dev.remine.guilder.commons.api.docker.DockerModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerService;
+import dev.remine.guilder.commons.api.docker.DockerModule;
+import dev.remine.guilder.commons.api.docker.DockerService;
 import lombok.Getter;
 
 import java.io.IOException;
 import java.util.logging.Logger;
+
+import static com.google.common.base.Predicates.equalTo;
 
 public class LoadBalancer {
 
@@ -28,7 +32,8 @@ public class LoadBalancer {
      */
     public void start(Injector injector) throws IOException, InterruptedException {
         this.injector = injector;
-        getInjector().getInstance(DatabaseService.class).startDatabase();
+        //getInjector().getInstance(DatabaseService.class).startDatabase();
+        getInjector().getInstance(DockerService.class).startDocker();
         getInjector().getInstance(ServerService.class).start();
     }
 
@@ -38,13 +43,10 @@ public class LoadBalancer {
 
         Injector injector = Guice.createInjector(
                 new ConfigProviderModule(),
+                new DockerModule(),
                 new ServerModule(),
-                new DatabaseModule(),
-                new DockerModule()
+                new DatabaseModule()
         );
-
-        DockerConfigProvider dockerConfigProvider = injector.getInstance(DockerConfigProvider.class);
-        System.out.println(dockerConfigProvider.getDockerHost());
 
         try {
             injector.getInstance(LoadBalancer.class).start(injector);

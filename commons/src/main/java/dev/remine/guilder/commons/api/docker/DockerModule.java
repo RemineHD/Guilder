@@ -7,7 +7,7 @@ public class DockerModule extends AbstractModule {
     @Override
     public void configure()
     {
-        System.out.println("Docker Module Called!");
+        bind(DockerService.class).to(DockerClientImpl.class);
     }
 
 }

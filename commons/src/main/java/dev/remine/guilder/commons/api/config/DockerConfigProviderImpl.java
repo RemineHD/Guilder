@@ -10,7 +10,7 @@ public class DockerConfigProviderImpl implements DockerConfigProvider {
     public String getDockerHost() {
         return Objects.requireNonNullElse(
                 System.getenv("DOCKER_HOST"),
-                "tcp://localhost:2376"); //Default Docker URL
+                "tcp://localhost:2375"); //Default Docker URL
     }
 
     @Override

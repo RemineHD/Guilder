@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>commons</artifactId>
-    <version>FINAL</version>
+    <version>1.0.0</version>
 
     <build>
         <plugins>
@@ -37,6 +37,20 @@
             <artifactId>mongodb-driver-sync</artifactId>
             <version>4.9.1</version>
         </dependency>
+
+        <!-- Docker Libs -->
+        <dependency>
+            <groupId>com.github.docker-java</groupId>
+            <artifactId>docker-java-core</artifactId>
+            <version>3.3.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.docker-java</groupId>
+            <artifactId>docker-java-transport-httpclient5</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
