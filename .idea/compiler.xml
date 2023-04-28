@@ -20,19 +20,19 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api" target="18" />
-      <module name="commons" target="18" />
-      <module name="core" target="18" />
-      <module name="games" target="18" />
-      <module name="Guilder" target="18" />
+      <module name="api" target="11" />
+      <module name="commons" target="11" />
+      <module name="core" target="11" />
+      <module name="games" target="11" />
+      <module name="Guilder" target="11" />
       <module name="hub" target="1.8" />
       <module name="loadbalancer" target="10" />
-      <module name="players" target="18" />
-      <module name="plugins" target="18" />
-      <module name="proto" target="18" />
-      <module name="proxy" target="18" />
-      <module name="servers" target="18" />
-      <module name="worlds" target="18" />
+      <module name="players" target="11" />
+      <module name="plugins" target="11" />
+      <module name="proto" target="11" />
+      <module name="proxy" target="11" />
+      <module name="servers" target="11" />
+      <module name="worlds" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

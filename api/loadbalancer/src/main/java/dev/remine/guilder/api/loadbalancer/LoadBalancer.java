@@ -1,8 +1,5 @@
 package dev.remine.guilder.api.loadbalancer;
 
-import com.github.dockerjava.api.DockerClient;
-import com.github.dockerjava.core.DockerClientImpl;
-import com.github.dockerjava.transport.DockerHttpClient;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import dev.remine.guilder.commons.api.config.ConfigProviderModule;
@@ -15,8 +12,6 @@ import lombok.Getter;
 
 import java.io.IOException;
 import java.util.logging.Logger;
-
-import static com.google.common.base.Predicates.equalTo;
 
 public class LoadBalancer {
 

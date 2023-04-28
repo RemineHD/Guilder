@@ -27,15 +27,7 @@ public class MongoDatabaseImpl implements DatabaseService {
 
         logger.info("[MongoDB] Starting MongoDB Client.");
 
-        String uri = "mongodb://" + dbConfigProvider.getMongoUser()
-                + ":" +
-                dbConfigProvider.getMongoPassword()
-                + "@" +
-                dbConfigProvider.getMongoAddress()
-                + ":" +
-                dbConfigProvider.getMongoPort();
-
-        mongoClient = MongoClients.create(uri);
+        mongoClient = MongoClients.create(dbConfigProvider.getMongoURI());
 
         MongoDatabase mongoDatabase = mongoClient.getDatabase("worlds");
 

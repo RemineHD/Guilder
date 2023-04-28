@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  mongodb:
+    image: mongo:latest
+    networks:
+      guilder_development:
+
+  api_loadbalancer:
+    restart: on-failure
+    depends_on:
+      - mongodb
+    build:
+      context: ./
+      dockerfile: api/loadbalancer/Dockerfile
+    ports:
+      - "50051:50051"
+    networks:
+      guilder_development:
+    environment:
+      MONGODB_URL: "mongodb://localhost:27017"
+      MONGODB_DATABASE: "guilder_development"
+      DOCKER_HOST: "tcp://localhost:2375"
+networks:
+  guilder_development:

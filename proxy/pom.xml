@@ -13,8 +13,8 @@
     <artifactId>proxy</artifactId>
 
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <repositories>
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>dev.remine.guilder</groupId>
             <artifactId>commons</artifactId>
-            <version>FINAL</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
