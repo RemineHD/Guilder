@@ -3,6 +3,7 @@ syntax = "proto3";
 package Loadbalancer;
 
 option java_package = "dev.remine.guilder.rpc.loadbalancer";
+option java_multiple_files = true;
 
 import "types/services.proto";
 

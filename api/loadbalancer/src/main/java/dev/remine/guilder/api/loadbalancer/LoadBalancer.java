@@ -6,6 +6,7 @@ import dev.remine.guilder.commons.api.config.ConfigProviderModule;
 import dev.remine.guilder.commons.api.database.DatabaseModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerModule;
 import dev.remine.guilder.api.loadbalancer.server.ServerService;
+import dev.remine.guilder.commons.api.database.DatabaseService;
 import dev.remine.guilder.commons.api.docker.DockerModule;
 import dev.remine.guilder.commons.api.docker.DockerService;
 import lombok.Getter;
@@ -27,7 +28,7 @@ public class LoadBalancer {
      */
     public void start(Injector injector) throws IOException, InterruptedException {
         this.injector = injector;
-        //getInjector().getInstance(DatabaseService.class).startDatabase();
+        getInjector().getInstance(DatabaseService.class).startDatabase();
         getInjector().getInstance(DockerService.class).startDocker();
         getInjector().getInstance(ServerService.class).start();
     }

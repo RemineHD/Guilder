@@ -32,16 +32,16 @@ public final class HandshakeGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest,
-      dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply> METHOD_HANDSHAKE_CLIENT =
-      io.grpc.MethodDescriptor.<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest, dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply>newBuilder()
+  public static final io.grpc.MethodDescriptor<dev.remine.guilder.rpc.loadbalancer.HandshakeRequest,
+      dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply> METHOD_HANDSHAKE_CLIENT =
+      io.grpc.MethodDescriptor.<dev.remine.guilder.rpc.loadbalancer.HandshakeRequest, dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "Loadbalancer.Handshake", "HandshakeClient"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest.getDefaultInstance()))
+              dev.remine.guilder.rpc.loadbalancer.HandshakeRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply.getDefaultInstance()))
+              dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply.getDefaultInstance()))
           .build();
 
   /**
@@ -77,8 +77,8 @@ public final class HandshakeGrpc {
 
     /**
      */
-    public void handshakeClient(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest request,
-        io.grpc.stub.StreamObserver<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply> responseObserver) {
+    public void handshakeClient(dev.remine.guilder.rpc.loadbalancer.HandshakeRequest request,
+        io.grpc.stub.StreamObserver<dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_HANDSHAKE_CLIENT, responseObserver);
     }
 
@@ -88,8 +88,8 @@ public final class HandshakeGrpc {
             METHOD_HANDSHAKE_CLIENT,
             asyncUnaryCall(
               new MethodHandlers<
-                dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest,
-                dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply>(
+                dev.remine.guilder.rpc.loadbalancer.HandshakeRequest,
+                dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply>(
                   this, METHODID_HANDSHAKE_CLIENT)))
           .build();
     }
@@ -119,8 +119,8 @@ public final class HandshakeGrpc {
 
     /**
      */
-    public void handshakeClient(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest request,
-        io.grpc.stub.StreamObserver<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply> responseObserver) {
+    public void handshakeClient(dev.remine.guilder.rpc.loadbalancer.HandshakeRequest request,
+        io.grpc.stub.StreamObserver<dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_HANDSHAKE_CLIENT, getCallOptions()), request, responseObserver);
     }
@@ -150,7 +150,7 @@ public final class HandshakeGrpc {
 
     /**
      */
-    public dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply handshakeClient(dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest request) {
+    public dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply handshakeClient(dev.remine.guilder.rpc.loadbalancer.HandshakeRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_HANDSHAKE_CLIENT, getCallOptions(), request);
     }
@@ -180,8 +180,8 @@ public final class HandshakeGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply> handshakeClient(
-        dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply> handshakeClient(
+        dev.remine.guilder.rpc.loadbalancer.HandshakeRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_HANDSHAKE_CLIENT, getCallOptions()), request);
     }
@@ -207,8 +207,8 @@ public final class HandshakeGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_HANDSHAKE_CLIENT:
-          serviceImpl.handshakeClient((dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.HandshakeRequest) request,
-              (io.grpc.stub.StreamObserver<dev.remine.guilder.rpc.loadbalancer.HandshakeOuterClass.ClientHandshakeReply>) responseObserver);
+          serviceImpl.handshakeClient((dev.remine.guilder.rpc.loadbalancer.HandshakeRequest) request,
+              (io.grpc.stub.StreamObserver<dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply>) responseObserver);
           break;
         default:
           throw new AssertionError();

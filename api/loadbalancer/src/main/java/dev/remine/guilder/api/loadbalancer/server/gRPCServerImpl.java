@@ -1,8 +1,6 @@
 package dev.remine.guilder.api.loadbalancer.server;
 
 import com.google.inject.Inject;
-import dev.remine.guilder.api.loadbalancer.imprv.auth.AuthServerInterceptor;
-import dev.remine.guilder.api.loadbalancer.imprv.manager.handshake.HandshakeImpl;
 import dev.remine.guilder.commons.api.config.gRPCConfigProvider;
 import io.grpc.Grpc;
 import io.grpc.InsecureServerCredentials;
@@ -35,8 +33,6 @@ public class gRPCServerImpl implements ServerService {
          * Here we start the gRPC server. All the Guilder MicroServices will use the exact same configuration.
          */
         server = Grpc.newServerBuilderForPort(gRPCConfigProvider.getPort(), InsecureServerCredentials.create())
-                .addService(new HandshakeImpl())
-                .intercept(new AuthServerInterceptor())
                 .build()
                 .start();
         logger.info("[gRPC] Server started, listening on: " + gRPCConfigProvider.getPort());

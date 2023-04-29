@@ -3,6 +3,7 @@ syntax = "proto3";
 package Types;
 
 option java_package = "dev.remine.guilder.rpc.types";
+option java_multiple_files = true;
 
 enum ServiceType
 {
@@ -31,5 +32,6 @@ message Service
   ServiceState ServiceState = 3;
   string Ip = 4;
   int32 Port = 5;
+  int32 Clients = 6;
 
 }
