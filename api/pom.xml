@@ -33,27 +33,9 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>dev.remine.guilder</groupId>
-            <artifactId>proto</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongodb-driver-sync</artifactId>
             <version>4.9.1</version>
-        </dependency>
-
-        <!-- Docker Libs -->
-        <dependency>
-            <groupId>com.github.docker-java</groupId>
-            <artifactId>docker-java-core</artifactId>
-            <version>3.3.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.github.docker-java</groupId>
-            <artifactId>docker-java-transport-httpclient5</artifactId>
-            <version>3.3.0</version>
         </dependency>
     </dependencies>
 

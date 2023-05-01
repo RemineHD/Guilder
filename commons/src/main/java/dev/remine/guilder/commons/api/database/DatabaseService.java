@@ -1,6 +1,7 @@
 package dev.remine.guilder.commons.api.database;
 
 import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoDatabase;
 
 public interface DatabaseService {
 
@@ -10,5 +11,6 @@ public interface DatabaseService {
 
     MongoClient getDatabaseClient();
 
+    MongoDatabase getDatabase();
 
 }

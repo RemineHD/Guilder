@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="proxy" />
+        <module name="development" />
         <module name="loadbalancer" />
         <module name="servers" />
         <module name="worlds" />
@@ -23,8 +24,9 @@
       <module name="api" target="11" />
       <module name="commons" target="11" />
       <module name="core" target="11" />
+      <module name="development" target="10" />
       <module name="games" target="11" />
-      <module name="Guilder" target="11" />
+      <module name="Guilder" target="18" />
       <module name="hub" target="1.8" />
       <module name="loadbalancer" target="10" />
       <module name="players" target="11" />

@@ -6,12 +6,14 @@ import com.github.dockerjava.core.DockerClientConfig;
 import com.github.dockerjava.httpclient5.ApacheDockerHttpClient;
 import com.github.dockerjava.transport.DockerHttpClient;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import dev.remine.guilder.commons.api.config.DockerConfigProvider;
 import lombok.Getter;
 
 import java.io.IOException;
 import java.util.logging.Logger;
 
+@Singleton
 public class DockerClientImpl implements DockerService {
 
     private final DockerConfigProvider dockerConfigProvider;
@@ -52,6 +54,8 @@ public class DockerClientImpl implements DockerService {
             exception.printStackTrace();
         }
         logger.info("[Docker] *** Docker Engine Client Started ***");
+
+        Runtime.getRuntime().addShutdownHook(new Thread(this::stopDocker));
     }
 
     @Override

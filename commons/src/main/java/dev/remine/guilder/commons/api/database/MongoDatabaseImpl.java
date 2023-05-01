@@ -1,19 +1,31 @@
 package dev.remine.guilder.commons.api.database;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 import dev.remine.guilder.commons.api.config.DbConfigProvider;
+import org.bson.codecs.configuration.CodecProvider;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
+import java.util.Objects;
 import java.util.logging.Logger;
 
+import static com.mongodb.MongoClientSettings.getDefaultCodecRegistry;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+
+@Singleton
 public class MongoDatabaseImpl implements DatabaseService {
 
     private final DbConfigProvider dbConfigProvider;
     private final Logger logger;
 
     private MongoClient mongoClient;
+
+    private CodecRegistry pojoCodecRegistry;
 
     @Inject
     public MongoDatabaseImpl(DbConfigProvider dbConfigProvider, Logger logger)
@@ -25,13 +37,13 @@ public class MongoDatabaseImpl implements DatabaseService {
     @Override
     public void startDatabase() {
 
+
+        CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
+        pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
+
         logger.info("[MongoDB] Starting MongoDB Client.");
 
-        mongoClient = MongoClients.create(dbConfigProvider.getMongoURI());
-
-        MongoDatabase mongoDatabase = mongoClient.getDatabase("worlds");
-
-        System.out.println(mongoDatabase.getCollection("worlds").countDocuments());
+        this.mongoClient = MongoClients.create(dbConfigProvider.getMongoURI());
 
         logger.info("[MongoDB] Server started.");
 
@@ -61,6 +73,11 @@ public class MongoDatabaseImpl implements DatabaseService {
         if (mongoClient != null)
             return mongoClient;
         return null;
+    }
+
+    @Override
+    public MongoDatabase getDatabase() {
+        return mongoClient.getDatabase(Objects.requireNonNullElse(dbConfigProvider.getMongoDatabase(), "guilder")).withCodecRegistry(pojoCodecRegistry);
     }
 
 }

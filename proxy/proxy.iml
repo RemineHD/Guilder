@@ -25,17 +25,16 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-event:1.19-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-protocol:1.19-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:brigadier:1.0.16-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-codec:4.1.91.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-codec:4.1.92.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.sf.trove4j:core:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: se.llbit:jo-nbt:1.3.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport-native-unix-common:4.1.91.Final" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-common:4.1.91.Final" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-buffer:4.1.91.Final" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport:4.1.91.Final" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-resolver:4.1.91.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport-native-unix-common:4.1.92.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-common:4.1.92.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-buffer:4.1.92.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-transport:4.1.92.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-resolver:4.1.92.Final" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.33" level="project" />
     <orderEntry type="module" module-name="core" />
-    <orderEntry type="module" module-name="proto" />
     <orderEntry type="module" module-name="commons" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-sync:4.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:4.9.1" level="project" />
@@ -45,6 +44,7 @@
     <orderEntry type="library" name="Maven: com.github.docker-java:docker-java-api:3.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.3" level="project" />
     <orderEntry type="library" name="Maven: com.github.docker-java:docker-java-transport:3.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.21" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
@@ -57,10 +57,15 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents.core5:httpcore5:5.0.2" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.13" level="project" />
     <orderEntry type="library" name="Maven: net.java.dev.jna:jna:5.12.1" level="project" />
+    <orderEntry type="module" module-name="proto" />
     <orderEntry type="library" name="Maven: com.google.inject:guice:5.1.0" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.26" level="project" />
+    <orderEntry type="library" name="Maven: es.zaroz:AsyncTask:2.0" level="project" />
+    <orderEntry type="library" name="Maven: pl.morgwai.base:grpc-scopes:9.2" level="project" />
+    <orderEntry type="library" name="Maven: pl.morgwai.base:guice-context-scopes:6.3" level="project" />
+    <orderEntry type="library" name="Maven: pl.morgwai.base:java-utils:1.13" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.grpc:grpc-netty-shaded:1.53.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.14.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.perfmark:perfmark-api:0.25.0" level="project" />
@@ -82,9 +87,5 @@
     <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:3.12.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.j2objc:j2objc-annotations:1.3" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.10.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.20.0" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.20.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.logging.log4j:log4j-core:2.20.0" level="project" />
   </component>
 </module>

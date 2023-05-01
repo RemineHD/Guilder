@@ -1,8 +1,10 @@
 package dev.remine.guilder.commons.api.config;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Binder;
+import com.google.inject.Module;
 
-public class ConfigProviderModule extends AbstractModule {
+public class ConfigProviderModule implements Module {
 
     /**
      * Config Providers are simple services
@@ -12,12 +14,12 @@ public class ConfigProviderModule extends AbstractModule {
      * have to change half of the project.
      */
     @Override
-    public void configure()
+    public void configure(Binder binder)
     {
-        bind(DbConfigProvider.class).to(DbConfigProviderImpl.class);
-        bind(DockerConfigProvider.class).to(DockerConfigProviderImpl.class);
-        bind(gRPCConfigProvider.class).to(gRPCConfigProviderImpl.class);
-        bind(ServiceConfigProvider.class).to(ServiceConfigProviderImpl.class);
+        binder.bind(DbConfigProvider.class).to(DbConfigProviderImpl.class).asEagerSingleton();
+        binder.bind(DockerConfigProvider.class).to(DockerConfigProviderImpl.class).asEagerSingleton();
+        binder.bind(gRPCConfigProvider.class).to(gRPCConfigProviderImpl.class).asEagerSingleton();
+        binder.bind(ServiceConfigProvider.class).to(ServiceConfigProviderImpl.class).asEagerSingleton();
     }
 
 }

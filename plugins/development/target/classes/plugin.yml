@@ -1,0 +1,3 @@
+name: DevelopmentCore
+version: '1.0-SNAPSHOT'
+main: dev.remine.guilder.plugins.development.Development

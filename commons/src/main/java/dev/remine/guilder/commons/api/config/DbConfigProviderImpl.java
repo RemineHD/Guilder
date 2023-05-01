@@ -13,7 +13,6 @@ public class DbConfigProviderImpl implements DbConfigProvider{
                 "mongodb://localhost:27017");
     }
 
-
     @Override
     public String getMongoDatabase() {
         return System.getenv("MONGODB_DATABASE");

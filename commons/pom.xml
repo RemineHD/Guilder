@@ -52,6 +52,14 @@
             <version>3.3.0</version>
         </dependency>
 
+        <!-- PROTO -->
+
+        <dependency>
+            <groupId>dev.remine.guilder</groupId>
+            <artifactId>proto</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
     </dependencies>
 
     <properties>
