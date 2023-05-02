@@ -1,6 +1,7 @@
 package dev.remine.guilder.commons.api.models;
 
 import dev.remine.guilder.rpc.types.Services;
+import dev.remine.guilder.rpc.types.State;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.codecs.pojo.annotations.BsonIgnore;
@@ -34,7 +35,7 @@ public class Service {
 
     @Setter
     @Getter
-    private Services.ServiceState serviceState;
+    private State serviceState;
 
     @Setter
     @Getter
@@ -49,7 +50,7 @@ public class Service {
     private Integer clients;
 
     @BsonIgnore
-    public static Comparator<Service> clientsNumberComparator = new Comparator<Service>() {
+    public static Comparator<Service> instanceNumberComparator = new Comparator<Service>() {
         @Override
         public int compare(Service o1, Service o2) {
             return o1.getClients() - o2.getClients();

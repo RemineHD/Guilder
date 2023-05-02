@@ -11,10 +11,10 @@
         <module name="proxy" />
         <module name="development" />
         <module name="loadbalancer" />
-        <module name="servers" />
         <module name="worlds" />
         <module name="hub" />
         <module name="players" />
+        <module name="infrastructure" />
         <module name="proto" />
         <module name="games" />
         <module name="commons" />
@@ -28,12 +28,12 @@
       <module name="games" target="11" />
       <module name="Guilder" target="18" />
       <module name="hub" target="1.8" />
+      <module name="infrastructure" target="11" />
       <module name="loadbalancer" target="10" />
       <module name="players" target="11" />
       <module name="plugins" target="11" />
       <module name="proto" target="11" />
       <module name="proxy" target="11" />
-      <module name="servers" target="11" />
       <module name="worlds" target="11" />
     </bytecodeTargetLevel>
   </component>

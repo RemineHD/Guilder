@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package Infrastructure;
+
+option java_package = "dev.remine.guilder.rpc.infrastructure";
+
+import "types/state.proto";
+
+enum InstanceType
+{
+  PROXY = 0;
+  LOBBY = 1;
+  GAME = 2;
+}
+
+message Instance
+{
+  string Id = 1;
+  string ShortId = 2;
+  InstanceType InstanceType = 3;
+  Types.State InstanceState = 4;
+  InstanceMetadata InstanceMetadata = 5;
+}
+
+message InstanceMetadata
+{
+  int64 CreatedTimeStamp = 1;
+  int64 StoppedTimeStamp = 2;
+
+}

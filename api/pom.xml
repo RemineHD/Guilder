@@ -17,7 +17,7 @@
     <modules>
         <module>loadbalancer</module>
         <module>players</module>
-        <module>servers</module>
+        <module>infrastructure</module>
         <module>worlds</module>
     </modules>
 

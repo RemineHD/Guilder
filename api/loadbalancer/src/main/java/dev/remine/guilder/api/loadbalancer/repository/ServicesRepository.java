@@ -44,9 +44,9 @@ public interface ServicesRepository {
 
     /**
      * Will return the recommended service by type.
-     * Recommended service in this case will be the RUNNING service with the least amount of clients.
+     * Recommended service in this case will be the RUNNING service with the least amount of instances.
      * @param serviceType the service type you want to get.
-     * @return the recommended service based on the state and the clients connected to it.
+     * @return the recommended service based on the state and the instances connected to it.
      * @throws ServiceNotAvailableException in case there is not available services of that type.
      */
     ValueTask<Service> getRecommendedServiceByType(Services.ServiceType serviceType) throws ServiceNotAvailableException;

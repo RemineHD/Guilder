@@ -4,6 +4,8 @@ package Types;
 
 option java_package = "dev.remine.guilder.rpc.types";
 
+import "types/state.proto";
+
 enum ServiceType
 {
   LOAD_BALANCER = 0;
@@ -16,19 +18,11 @@ enum ServiceType
   BATTLE_PASS = 7;
 }
 
-enum ServiceState
-{
-  CRAFTED = 0;
-  RUNNING = 1;
-  STOPPED = 2;
-  DELETED = 3;
-}
-
 message Service
 {
   string Id = 1;
   ServiceType ServiceType = 2;
-  ServiceState ServiceState = 3;
+  Types.State ServiceState = 3;
   string Ip = 4;
   int32 Port = 5;
   int32 Clients = 6;

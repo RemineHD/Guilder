@@ -11,6 +11,7 @@ import dev.remine.guilder.api.loadbalancer.repository.exceptions.services.Unable
 import dev.remine.guilder.commons.api.models.Service;
 import dev.remine.guilder.commons.api.database.DatabaseService;
 import dev.remine.guilder.rpc.types.Services;
+import dev.remine.guilder.rpc.types.State;
 import es.zaroz.AsyncTask.ValueTask;
 import lombok.NonNull;
 
@@ -130,10 +131,10 @@ public class ServicesRepositoryImpl implements ServicesRepository {
                 List<Service> result = new ArrayList<>();
                 for (Service service : getServicesByType(serviceType).getResult()) //We use the fetching logic we already have to avoid repeated code.
                 {
-                    if (service.getServiceState() == Services.ServiceState.RUNNING)
+                    if (service.getServiceState() == State.RUNNING)
                         result.add(service);
                 }
-                result.sort(Service.clientsNumberComparator);
+                result.sort(Service.instanceNumberComparator);
                 return result.get(0);
             } catch (Exception exception)
             {
