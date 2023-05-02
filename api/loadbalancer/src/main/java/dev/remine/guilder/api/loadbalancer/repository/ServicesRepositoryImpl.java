@@ -4,7 +4,6 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Projections;
 import com.mongodb.client.result.InsertOneResult;
 import dev.remine.guilder.api.loadbalancer.repository.exceptions.services.ServiceNotAvailableException;
 import dev.remine.guilder.api.loadbalancer.repository.exceptions.services.ServiceNotFoundException;
@@ -20,7 +19,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Sorts.descending;
 
 @Singleton
 public class ServicesRepositoryImpl implements ServicesRepository {
@@ -65,13 +63,20 @@ public class ServicesRepositoryImpl implements ServicesRepository {
     public ValueTask<Service> getServiceById(@NonNull String Id) {
             return ValueTask.run(() -> {
                 try {
+                    /*
+                     * First, we check if the service is stored in cache.
+                     */
                     for (Service service : getCachedServices())
                     {
                         if (service.getId().equalsIgnoreCase(Id))
                             return service;
                     }
+                    //If it is not, we ask mongo to see if it's in there
                     Service service = getCollection().find(eq("_id", Id)).first();
-                    servicesCache.add(service);
+
+                    //We double-check the service is not null, and we add it to cache for future operations.
+                    if (service != null)
+                        servicesCache.add(service);
                     return service;
                 } catch (Exception exception)
                 {
@@ -86,6 +91,14 @@ public class ServicesRepositoryImpl implements ServicesRepository {
         return ValueTask.run(() -> {
             try {
                 List<Service> result = new ArrayList<>();
+                /*
+                First we check if there's any data in cache.
+                You may ask, well maybe there is data in cache, and we skip newer data
+                from Mongo.
+                Well this is true, but, because the services collection is not expected to
+                have millions nor even thousands of documents we will clear and fetch all the data from
+                cache each X minutes, so it can be as updated as we can.
+                 */
                 for (Service service : getCachedServices())
                 {
                     if (service.getServiceType() == serviceType)
@@ -93,7 +106,14 @@ public class ServicesRepositoryImpl implements ServicesRepository {
                 }
                 if (!result.isEmpty())
                     return result;
-                for (Service service : getCollection().find(eq("serviceType", serviceType))) result.add(service);
+                /*
+                If it is not we ask Mongo if there is still no data null will be returned.
+                 */
+                for (Service service : getCollection().find(eq("serviceType", serviceType)))
+                {
+                    servicesCache.add(service);
+                    result.add(service);
+                }
                 return result;
             } catch (Exception exception)
             {
@@ -108,19 +128,13 @@ public class ServicesRepositoryImpl implements ServicesRepository {
         return ValueTask.run(() -> {
             try {
                 List<Service> result = new ArrayList<>();
-                for (Service service : getCachedServices())
+                for (Service service : getServicesByType(serviceType).getResult()) //We use the fetching logic we already have to avoid repeated code.
                 {
-                    if (service.getServiceType() == serviceType && service.getServiceState() == Services.ServiceState.RUNNING)
+                    if (service.getServiceState() == Services.ServiceState.RUNNING)
                         result.add(service);
                 }
-                if (!result.isEmpty()) {
-                    result.sort(Service.clientsNumberComparator);
-                    return result.get(0);
-                }
-                return getCollection().find(eq("serviceType", serviceType))
-                        .projection(Projections.include("serviceState", Services.ServiceState.RUNNING.toString()))
-                        .sort(descending("clients"))
-                        .first();
+                result.sort(Service.clientsNumberComparator);
+                return result.get(0);
             } catch (Exception exception)
             {
                 logger.warning("[Services Repository] error getting recommended service by type: " + serviceType);
@@ -132,9 +146,9 @@ public class ServicesRepositoryImpl implements ServicesRepository {
     @Override
     public void updateService(@NonNull Service service) throws UnableToUpdateServiceException {
         try {
-            getCollection().findOneAndReplace(eq("Id", service.getId()), service);
-            servicesCache.removeIf(cached -> cached.getId().equalsIgnoreCase(service.getId()));
-            servicesCache.add(service);
+            getCollection().findOneAndReplace(eq("_id", service.getId()), service); //We search for a document matching the Id and then we replace it by the updated one.
+            servicesCache.removeIf(cached -> cached.getId().equalsIgnoreCase(service.getId())); //If we have a document with the same Id in cache we will remove it
+            servicesCache.add(service); //And add it again later with the updated data.
         } catch (Exception exception)
         {
             logger.warning("[Services Repository] error updating a MicroService with Id: " + service.getId());
@@ -146,7 +160,8 @@ public class ServicesRepositoryImpl implements ServicesRepository {
     @Override
     public void deleteServiceById(@NonNull String Id) {
         try {
-            getCollection().deleteOne(eq("Id", Id));
+            //https://www.mongodb.com/docs/drivers/java/sync/current/usage-examples/deleteOne/
+            getCollection().deleteOne(eq("_id", Id));
             servicesCache.removeIf(service -> service.getId().equalsIgnoreCase(Id));
         } catch (Exception exception)
         {
@@ -159,6 +174,7 @@ public class ServicesRepositoryImpl implements ServicesRepository {
     @Override
     public void deleteServicesByType(@NonNull Services.ServiceType serviceType) {
         try {
+            //https://www.mongodb.com/docs/drivers/java/sync/current/usage-examples/deleteMany/
             getCollection().deleteMany(eq("serviceType", serviceType));
             servicesCache.removeIf(cached -> cached.getServiceType() == serviceType);
         } catch (Exception exception)

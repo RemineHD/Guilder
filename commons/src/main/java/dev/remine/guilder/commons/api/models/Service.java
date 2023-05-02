@@ -9,8 +9,9 @@ import java.util.Comparator;
 
 public class Service {
 
-    public Service(String Id) {
-        this.Id = Id;
+    public Service()
+    {
+
     }
 
     public Service(Services.Service service)
@@ -23,6 +24,7 @@ public class Service {
         this.clients = service.getClients();
     }
 
+    @Setter
     @Getter
     private String Id;
 
@@ -46,10 +48,11 @@ public class Service {
     @Getter
     private Integer clients;
 
+    @BsonIgnore
     public static Comparator<Service> clientsNumberComparator = new Comparator<Service>() {
         @Override
         public int compare(Service o1, Service o2) {
-            return o2.getClients() - o1.getClients();
+            return o1.getClients() - o2.getClients();
         }
     };
 
