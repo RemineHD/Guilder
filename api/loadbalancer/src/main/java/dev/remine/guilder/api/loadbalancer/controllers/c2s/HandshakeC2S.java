@@ -2,7 +2,6 @@ package dev.remine.guilder.api.loadbalancer.controllers.c2s;
 
 import com.google.inject.Inject;
 import dev.remine.guilder.api.loadbalancer.repository.ServicesRepository;
-import dev.remine.guilder.commons.api.models.Service;
 import dev.remine.guilder.rpc.loadbalancer.ClientHandshakeReply;
 import dev.remine.guilder.rpc.loadbalancer.HandshakeGrpc;
 import dev.remine.guilder.rpc.loadbalancer.HandshakeRequest;
