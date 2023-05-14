@@ -17,6 +17,8 @@ import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Logger;
 
 import static com.mongodb.client.model.Filters.eq;
@@ -35,6 +37,16 @@ public class ServicesRepositoryImpl implements ServicesRepository {
         this.databaseService = databaseService;
         this.logger = logger;
         this.servicesCache = new ArrayList<>();
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+                logger.info("[Services Repository] clearing cache");
+                servicesCache.clear();
+            }
+        }, 0, 300000L);
+
     }
 
     private MongoCollection<Service> getCollection()
@@ -185,4 +197,5 @@ public class ServicesRepositoryImpl implements ServicesRepository {
         }
         logger.info("[Services Repository] deleted all services of type: " + serviceType);
     }
+
 }

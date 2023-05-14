@@ -41,8 +41,7 @@ public class HandshakeC2S extends HandshakeGrpc.HandshakeImplBase {
             //servicesRepository.updateService(service);
             //clientServices.add(service.getAsProto());
 
-            servicesRepository.deleteServicesByType(Services.ServiceType.PLAYERS);
-            servicesRepository.deleteServiceById("dev-test-reccomendations-2");
+            servicesRepository.getServicesByType(Services.ServiceType.ADMIN);
 
         } catch (Exception exception)
         {
